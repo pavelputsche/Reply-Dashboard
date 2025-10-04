@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reply Banking Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="theme-color" content="#6366f1">
+</head>
+<body>
+    <nav id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>Reply Bank</h2>
+            <button id="closeSidebar">×</button>
+        </div>
+        <ul>
+            <li><a href="#dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href="#accounts"><i class="fas fa-wallet"></i>Accounts</a></li>
+            <li><a href="#profile"><i class="fas fa-user"></i>Profile</a></li>
+            <li><a href="#privacy"><i class="fas fa-shield-alt"></i>Privacy</a></li>
+            <li><a href="#permissions"><i class="fas fa-key"></i>Permissions</a></li>
+            <li><a href="#messages"><i class="fas fa-envelope"></i>Messages</a></li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <header>
+            <button id="burgerMenu" class="burger">☰</button>
+            <h1>Dashboard</h1>
+        </header>
+        <section id="dashboard" class="dashboard-section">
+            <div class="accounts-overview">
+                <h2>Accounts Overview</h2>
+                <div class="accounts-grid">
+                    <div class="account-card checking">
+                        <div class="account-icon"><i class="fas fa-wallet"></i></div>
+                        <div class="account-details">
+                            <div class="account-type">Checking Account</div>
+                            <div class="account-id">**** 4385</div>
+                            <div class="balance">$5,200.00</div>
+                        </div>
+                        <div class="account-actions">
+                            <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
+                            <button class="action-btn"><i class="fas fa-file-invoice"></i></button>
+                        </div>
+                    </div>
+                    <div class="account-card savings">
+                        <div class="account-icon"><i class="fas fa-piggy-bank"></i></div>
+                        <div class="account-details">
+                            <div class="account-type">Savings Account</div>
+                            <div class="account-id">**** 7829</div>
+                            <div class="balance">$12,800.00</div>
+                        </div>
+                        <div class="account-actions">
+                            <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
+                            <button class="action-btn"><i class="fas fa-file-invoice"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="recent-transactions">
+                <h2>Recent Transactions</h2>
+                <div class="transaction-header">
+                    <span class="transaction-date">Date</span>
+                    <span class="transaction-description">Description</span>
+                    <span class="transaction-account">Account</span>
+                    <span class="transaction-amount">Amount</span>
+                </div>
+                <ul>
+                    <li class="debit">
+                        <span class="transaction-date">2025-10-03</span>
+                        <span class="transaction-description">
+                            <i class="fas fa-shopping-cart"></i>
+                            Whole Foods Market
+                            <span class="transaction-id">TX-89321</span>
+                        </span>
+                        <span class="transaction-account">CHKG *4385</span>
+                        <span class="transaction-amount">-$186.42</span>
+                    </li>
+                    <li class="credit">
+                        <span class="transaction-date">2025-10-02</span>
+                        <span class="transaction-description">
+                            <i class="fas fa-building"></i>
+                            ACME Corp Salary
+                            <span class="transaction-id">TX-89320</span>
+                        </span>
+                        <span class="transaction-account">CHKG *4385</span>
+                        <span class="transaction-amount">+$3,250.00</span>
+                    </li>
+                    <li class="debit">
+                        <span class="transaction-date">2025-10-02</span>
+                        <span class="transaction-description">
+                            <i class="fas fa-home"></i>
+                            Apartment Rent
+                            <span class="transaction-id">TX-89319</span>
+                        </span>
+                        <span class="transaction-account">CHKG *4385</span>
+                        <span class="transaction-amount">-$1,850.00</span>
+                    </li>
+                    <li class="debit">
+                        <span class="transaction-date">2025-10-01</span>
+                        <span class="transaction-description">
+                            <i class="fas fa-car"></i>
+                            Shell Gas Station
+                            <span class="transaction-id">TX-89318</span>
+                        </span>
+                        <span class="transaction-account">CHKG *4385</span>
+                        <span class="transaction-amount">-$65.23</span>
+                    </li>
+                    <li class="transfer">
+                        <span class="transaction-date">2025-10-01</span>
+                        <span class="transaction-description">
+                            <i class="fas fa-exchange-alt"></i>
+                            Transfer to Savings
+                            <span class="transaction-id">TX-89317</span>
+                        </span>
+                        <span class="transaction-account">SAVE *7829</span>
+                        <span class="transaction-amount">-$500.00</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="quick-actions">
+                <h2>Quick Actions</h2>
+                <button>Transfer Money</button>
+            </div>
+        </section>
+        <section id="profile" class="dashboard-section">
+            <h2>Account/Profile Properties</h2>
+            <div class="profile-info">
+                <p>Name: John Doe</p>
+                <p>Email: john.doe@email.com</p>
+            </div>
+        </section>
+        <section id="privacy" class="dashboard-section">
+            <h2>Privacy Settings</h2>
+            <label><input type="checkbox" checked> Hide account balance</label><br>
+            <label><input type="checkbox"> Enable 2FA</label>
+        </section>
+        <section id="permissions" class="dashboard-section">
+            <h2>Fine Grain Permission Control</h2>
+            <ul>
+                <li>
+                    Pension Fund: <span>Read Balance</span>
+                    <button>Revoke</button>
+                </li>
+                <li>
+                    Health Insurance: <span>Read Personal Info</span>
+                    <button>Revoke</button>
+                </li>
+            </ul>
+        </section>
+        <section id="messages" class="dashboard-section">
+            <h2>Messages</h2>
+            <div class="message">
+                <p><strong>Pension Fund</strong> requests access to your account info.</p>
+                <button>Grant Access</button>
+                <button>Deny</button>
+            </div>
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
