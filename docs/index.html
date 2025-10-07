@@ -20,7 +20,10 @@
             <li><a href="#profile"><i class="fas fa-user"></i>Profile</a></li>
             <li><a href="#privacy"><i class="fas fa-shield-alt"></i>Privacy</a></li>
             <li><a href="#permissions"><i class="fas fa-key"></i>Permissions</a></li>
-            <li><a href="#messages"><i class="fas fa-envelope"></i>Messages</a></li>
+            <li><a href="#messages" class="has-badge">
+                <i class="fas fa-envelope"></i>Messages
+                <span class="notification-badge">2</span>
+            </a></li>
         </ul>
     </nav>
     <div class="main-content">
@@ -138,16 +141,38 @@
         </section>
         <section id="permissions" class="dashboard-section">
             <h2>Fine Grain Permission Control</h2>
-            <ul>
-                <li>
-                    Pension Fund: <span>Read Balance</span>
-                    <button>Revoke</button>
+            <ul id="permissionsList">
+                <li data-id="1" class="permission-item">
+                    <div class="permission-info">
+                        <span class="company">Pension Fund</span>
+                        <span class="access-type">Read Balance</span>
+                    </div>
+                    <div class="permission-actions">
+                        <button class="revoke-btn" onclick="togglePermission(1)">Revoke</button>
+                    </div>
                 </li>
-                <li>
-                    Health Insurance: <span>Read Personal Info</span>
-                    <button>Revoke</button>
+                <li data-id="2" class="permission-item">
+                    <div class="permission-info">
+                        <span class="company">Health Insurance</span>
+                        <span class="access-type">Read Personal Info</span>
+                    </div>
+                    <div class="permission-actions">
+                        <button class="revoke-btn" onclick="togglePermission(2)">Revoke</button>
+                    </div>
                 </li>
             </ul>
+            
+            <!-- Confirmation Dialog -->
+            <div id="confirmationDialog" class="dialog">
+                <div class="dialog-content">
+                    <h3>Confirm Action</h3>
+                    <p id="dialogMessage">Are you sure you want to revoke this permission?</p>
+                    <div class="dialog-buttons">
+                        <button onclick="confirmAction(true)" class="btn-confirm">Yes</button>
+                        <button onclick="confirmAction(false)" class="btn-cancel">No</button>
+                    </div>
+                </div>
+            </div>
         </section>
         <section id="messages" class="dashboard-section">
             <h2>Messages</h2>
