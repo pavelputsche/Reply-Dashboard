@@ -91,14 +91,16 @@ const companyInfo = {
         dataUsage: 'We use your balance information to calculate and optimize your pension contributions and retirement planning. This data helps us provide personalized retirement strategies and ensure optimal fund allocation.',
         accessDetails: 'Access is limited to balance information only. We do not see individual transaction details. Data is accessed once per month for regular pension calculations and projections.',
         security: 'All data is encrypted using industry-standard protocols. We maintain SOC 2 Type II certification and conduct regular security audits. Your data is stored in secure EU-based data centers.',
-        contact: 'Data Protection Officer: dpo@pensionfund.com\nPhone: +1 (555) 123-4567\nCompliance Office: compliance@pensionfund.com'
+        contact: 'Data Protection Officer: dpo@pensionfund.com\nPhone: +1 (555) 123-4567\nCompliance Office: compliance@pensionfund.com',
+        moreInfoUrl: 'https://www.pensionfund-example.com/data-privacy'
     },
     'health-insurance': {
         title: 'Health Insurance Data Usage Information',
         dataUsage: 'Your personal information is used to process insurance claims, verify coverage eligibility, and provide personalized healthcare recommendations. We analyze patterns to improve our service quality.',
         accessDetails: 'We access basic personal information and insurance-related transaction history. Medical records are handled separately with additional security measures.',
         security: 'HIPAA-compliant data handling with end-to-end encryption. Regular third-party security audits and strict access controls are maintained.',
-        contact: 'Privacy Office: privacy@healthinsurance.com\nPhone: +1 (555) 987-6543\nCustomer Support: support@healthinsurance.com'
+        contact: 'Privacy Office: privacy@healthinsurance.com\nPhone: +1 (555) 987-6543\nCustomer Support: support@healthinsurance.com',
+        moreInfoUrl: 'https://www.healthinsurance-example.com/privacy-policy'
     }
 };
 
@@ -113,6 +115,9 @@ function showCompanyInfo(button) {
     document.getElementById('accessDetails').textContent = info.accessDetails;
     document.getElementById('securityMeasures').textContent = info.security;
     document.getElementById('contactInfo').textContent = info.contact;
+    
+    const moreInfoLink = document.getElementById('moreInfoLink');
+    moreInfoLink.href = info.moreInfoUrl;
     
     dialog.classList.add('show');
 }
