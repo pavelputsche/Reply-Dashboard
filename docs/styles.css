@@ -8,6 +8,12 @@
     --success-color: #10b981;
     --success-hover: #059669;
     
+    /* Neutral colors for info button */
+    --neutral-light: #f8fafc;
+    --neutral-hover: #f1f5f9;
+    --neutral-border: #cbd5e1;
+    --neutral-dark: #475569;
+    
     /* Additional colors */
     --cyan: #06b6d4;
     --cyan-light: rgba(6, 182, 212, 0.1);
@@ -588,11 +594,53 @@ header {
     background: #cbd5e1;
 }
 
-/* Info button and tooltip styles */
-.info-btn {
+/* Company Info Dialog Styles */
+.company-info {
+    max-width: 600px !important;
+}
+
+.company-info .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
     background: none;
     border: none;
+    font-size: 1.5rem;
     color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+}
+
+.company-info .close-btn:hover {
+    background: var(--neutral-hover);
+    color: var(--text-primary);
+}
+
+.info-section {
+    margin-bottom: 1.5rem;
+}
+
+.info-section h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-section p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre-line;
+}
+
+/* Info button and tooltip styles */
+.info-btn {
+    background: var(--neutral-light);
+    border: 1px solid var(--neutral-border);
+    color: var(--neutral-dark);
     padding: 0.5rem;
     cursor: pointer;
     font-size: 1rem;
@@ -602,11 +650,16 @@ header {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 32px;
+    height: 32px;
 }
 
 .info-btn:hover {
-    color: var(--primary-color);
-    background: var(--primary-color-light);
+    color: var(--neutral-dark);
+    background: var(--neutral-hover);
+    border-color: var(--neutral-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .info-btn[data-tooltip] {
