@@ -775,7 +775,7 @@ header {
     align-items: center;
     gap: 0.5rem;
 }
-#permissions button {
+#permissions .revoke-btn {
     background: var(--danger-color);
     color: white;
     border: none;
@@ -787,7 +787,7 @@ header {
     transition: all 0.2s;
 }
 
-#permissions button:hover {
+#permissions .revoke-btn:hover {
     background: var(--danger-hover);
     transform: translateY(-1px);
 }
