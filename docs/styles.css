@@ -528,9 +528,11 @@ header {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
-    background-size: cover;
+    background-size: 80%;
     background-position: center;
+    background-repeat: no-repeat;
     border: 1px solid var(--border);
+    background-color: white;
 }
 
 .permission-info .company-details {
@@ -819,9 +821,11 @@ header {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 50%;
-    background-size: cover;
+    background-size: 80%;
     background-position: center;
+    background-repeat: no-repeat;
     border: 1px solid var(--border);
+    background-color: white;
 }
 
 #messages .company-details {
