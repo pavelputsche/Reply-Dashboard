@@ -47,7 +47,7 @@ function togglePermission(id) {
         grantPermission(id);
     } else {
         // If active, show confirmation dialog before revoking
-        showDialog(`Are you sure you want to revoke this permission?`);
+        showDialog(`Möchten Sie diese Berechtigung wirklich widerrufen?`);
     }
 }
 
@@ -71,7 +71,7 @@ function revokePermission(id) {
     const button = permissionItem.querySelector('.revoke-btn');
     
     permissionItem.classList.add('revoked');
-    button.textContent = 'Grant Access';
+    button.textContent = 'Zugriff gewähren';
     button.classList.add('grant');
 }
 
@@ -80,27 +80,27 @@ function grantPermission(id) {
     const button = permissionItem.querySelector('.revoke-btn');
     
     permissionItem.classList.remove('revoked');
-    button.textContent = 'Revoke';
+    button.textContent = 'Widerrufen';
     button.classList.remove('grant');
 }
 
 // Company information data
 const companyInfo = {
     'pension-fund': {
-        title: 'Pension Fund Data Usage Information',
-        dataUsage: 'We use your balance information to calculate and optimize your pension contributions and retirement planning. This data helps us provide personalized retirement strategies and ensure optimal fund allocation.',
-        accessDetails: 'Access is limited to balance information only. We do not see individual transaction details. Data is accessed once per month for regular pension calculations and projections.',
-        security: 'All data is encrypted using industry-standard protocols. We maintain SOC 2 Type II certification and conduct regular security audits. Your data is stored in secure EU-based data centers.',
-        contact: 'Data Protection Officer: dpo@pensionfund.com\nPhone: +1 (555) 123-4567\nCompliance Office: compliance@pensionfund.com',
-        moreInfoUrl: 'https://www.pensionfund-example.com/data-privacy'
+        title: 'Deutsche Rentenversicherung - Datennutzung',
+        dataUsage: 'Wir verwenden Ihre Kontoinformationen zur Berechnung und Optimierung Ihrer Rentenbeiträge und Altersvorsorgeplanung. Diese Daten helfen uns, personalisierte Rentenstrategien zu entwickeln und eine optimale Fondsallokation sicherzustellen.',
+        accessDetails: 'Der Zugriff ist auf Kontostands- und Beitragsinformationen beschränkt. Einzelne Transaktionsdetails werden nicht eingesehen. Die Daten werden einmal monatlich für regelmäßige Rentenberechnungen und Prognosen abgerufen.',
+        security: 'Alle Daten werden nach deutschen Datenschutzstandards verschlüsselt. Wir sind nach ISO 27001 zertifiziert und führen regelmäßige Sicherheitsaudits durch. Ihre Daten werden ausschließlich in deutschen Rechenzentren gespeichert.',
+        contact: 'Datenschutzbeauftragter: datenschutz@rentenversicherung.de\nTelefon: 0800 1000 4800\nCompliance-Büro: compliance@rentenversicherung.de',
+        moreInfoUrl: 'https://www.deutsche-rentenversicherung.de/datenschutz'
     },
     'health-insurance': {
-        title: 'Health Insurance Data Usage Information',
-        dataUsage: 'Your personal information is used to process insurance claims, verify coverage eligibility, and provide personalized healthcare recommendations. We analyze patterns to improve our service quality.',
-        accessDetails: 'We access basic personal information and insurance-related transaction history. Medical records are handled separately with additional security measures.',
-        security: 'HIPAA-compliant data handling with end-to-end encryption. Regular third-party security audits and strict access controls are maintained.',
-        contact: 'Privacy Office: privacy@healthinsurance.com\nPhone: +1 (555) 987-6543\nCustomer Support: support@healthinsurance.com',
-        moreInfoUrl: 'https://www.healthinsurance-example.com/privacy-policy'
+        title: 'Techniker Krankenkasse - Datennutzung',
+        dataUsage: 'Ihre persönlichen Daten werden für die Bearbeitung von Versicherungsansprüchen, die Überprüfung der Versicherungsberechtigung und personalisierte Gesundheitsempfehlungen verwendet.',
+        accessDetails: 'Wir greifen auf grundlegende persönliche Informationen und versicherungsbezogene Transaktionen zu. Medizinische Unterlagen werden separat mit zusätzlichen Sicherheitsmaßnahmen behandelt.',
+        security: 'DSGVO-konformer Datenschutz mit Ende-zu-Ende-Verschlüsselung. Regelmäßige externe Sicherheitsaudits und strenge Zugriffskontrollen werden durchgeführt.',
+        contact: 'Datenschutzabteilung: datenschutz@tk.de\nTelefon: 0800 285 85 85\nKundenservice: service@tk.de',
+        moreInfoUrl: 'https://www.tk.de/datenschutz'
     }
 };
 

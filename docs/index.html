@@ -11,17 +11,17 @@
 <body>
     <nav id="sidebar" class="sidebar">
         <div class="sidebar-header">
-            <h2>Reply Bank</h2>
+            <h2>Eurovia Bank</h2>
             <button id="closeSidebar">×</button>
         </div>
         <ul>
-            <li><a href="#dashboard"><i class="fas fa-home"></i>Dashboard</a></li>
-            <li><a href="#accounts"><i class="fas fa-wallet"></i>Accounts</a></li>
-            <li><a href="#profile"><i class="fas fa-user"></i>Profile</a></li>
-            <li><a href="#privacy"><i class="fas fa-shield-alt"></i>Privacy</a></li>
-            <li><a href="#permissions"><i class="fas fa-key"></i>Permissions</a></li>
+            <li><a href="#dashboard"><i class="fas fa-home"></i>Übersicht</a></li>
+            <li><a href="#accounts"><i class="fas fa-wallet"></i>Konten</a></li>
+            <li><a href="#profile"><i class="fas fa-user"></i>Profil</a></li>
+            <li><a href="#privacy"><i class="fas fa-shield-alt"></i>Datenschutz</a></li>
+            <li><a href="#permissions"><i class="fas fa-key"></i>Berechtigungen</a></li>
             <li><a href="#messages" class="has-badge">
-                <i class="fas fa-envelope"></i>Messages
+                <i class="fas fa-envelope"></i>Nachrichten
                 <span class="notification-badge">2</span>
             </a></li>
         </ul>
@@ -29,128 +29,136 @@
     <div class="main-content">
         <header>
             <button id="burgerMenu" class="burger">☰</button>
-            <h1>Dashboard</h1>
+            <h1>Übersicht</h1>
         </header>
         <section id="dashboard" class="dashboard-section">
             <div class="accounts-overview">
-                <h2>Accounts Overview</h2>
+                <h2>Kontenübersicht</h2>
                 <div class="accounts-grid">
                     <div class="account-card checking">
                         <div class="account-icon"><i class="fas fa-wallet"></i></div>
                         <div class="account-details">
-                            <div class="account-type">Checking Account</div>
+                            <div class="account-type">Girokonto</div>
                             <div class="account-id">**** 4385</div>
-                            <div class="balance">$5,200.00</div>
+                            <div class="balance">5.200,00 €</div>
                         </div>
                         <div class="account-actions">
-                            <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
-                            <button class="action-btn"><i class="fas fa-file-invoice"></i></button>
+                            <button class="action-btn" title="Überweisung"><i class="fas fa-exchange-alt"></i></button>
+                            <button class="action-btn" title="Kontoauszug"><i class="fas fa-file-invoice"></i></button>
                         </div>
                     </div>
                     <div class="account-card savings">
                         <div class="account-icon"><i class="fas fa-piggy-bank"></i></div>
                         <div class="account-details">
-                            <div class="account-type">Savings Account</div>
+                            <div class="account-type">Sparkonto</div>
                             <div class="account-id">**** 7829</div>
-                            <div class="balance">$12,800.00</div>
+                            <div class="balance">12.800,00 €</div>
                         </div>
                         <div class="account-actions">
-                            <button class="action-btn"><i class="fas fa-exchange-alt"></i></button>
-                            <button class="action-btn"><i class="fas fa-file-invoice"></i></button>
+                            <button class="action-btn" title="Überweisung"><i class="fas fa-exchange-alt"></i></button>
+                            <button class="action-btn" title="Kontoauszug"><i class="fas fa-file-invoice"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="recent-transactions">
-                <h2>Recent Transactions</h2>
+                <h2>Letzte Transaktionen</h2>
                 <div class="transaction-header">
-                    <span class="transaction-date">Date</span>
-                    <span class="transaction-description">Description</span>
-                    <span class="transaction-account">Account</span>
-                    <span class="transaction-amount">Amount</span>
+                    <span class="transaction-date">Datum</span>
+                    <span class="transaction-description">Beschreibung</span>
+                    <span class="transaction-account">Konto</span>
+                    <span class="transaction-amount">Betrag</span>
                 </div>
                 <ul>
                     <li class="debit">
-                        <span class="transaction-date">2025-10-03</span>
+                        <span class="transaction-date">03.10.2025</span>
                         <span class="transaction-description">
                             <i class="fas fa-shopping-cart"></i>
-                            Whole Foods Market
+                            REWE Markt GmbH
                             <span class="transaction-id">TX-89321</span>
                         </span>
-                        <span class="transaction-account">CHKG *4385</span>
-                        <span class="transaction-amount">-$186.42</span>
+                        <span class="transaction-account">GIRO *4385</span>
+                        <span class="transaction-amount">-186,42 €</span>
                     </li>
                     <li class="credit">
-                        <span class="transaction-date">2025-10-02</span>
+                        <span class="transaction-date">02.10.2025</span>
                         <span class="transaction-description">
                             <i class="fas fa-building"></i>
-                            ACME Corp Salary
+                            Gehalt - Siemens AG
                             <span class="transaction-id">TX-89320</span>
                         </span>
-                        <span class="transaction-account">CHKG *4385</span>
-                        <span class="transaction-amount">+$3,250.00</span>
+                        <span class="transaction-account">GIRO *4385</span>
+                        <span class="transaction-amount">+3.250,00 €</span>
                     </li>
                     <li class="debit">
-                        <span class="transaction-date">2025-10-02</span>
+                        <span class="transaction-date">02.10.2025</span>
                         <span class="transaction-description">
                             <i class="fas fa-home"></i>
-                            Apartment Rent
+                            Mietzahlung
                             <span class="transaction-id">TX-89319</span>
                         </span>
-                        <span class="transaction-account">CHKG *4385</span>
-                        <span class="transaction-amount">-$1,850.00</span>
+                        <span class="transaction-account">GIRO *4385</span>
+                        <span class="transaction-amount">-1.850,00 €</span>
                     </li>
                     <li class="debit">
-                        <span class="transaction-date">2025-10-01</span>
+                        <span class="transaction-date">01.10.2025</span>
                         <span class="transaction-description">
                             <i class="fas fa-car"></i>
-                            Shell Gas Station
+                            ARAL Tankstelle
                             <span class="transaction-id">TX-89318</span>
                         </span>
-                        <span class="transaction-account">CHKG *4385</span>
-                        <span class="transaction-amount">-$65.23</span>
+                        <span class="transaction-account">GIRO *4385</span>
+                        <span class="transaction-amount">-65,23 €</span>
                     </li>
                     <li class="transfer">
-                        <span class="transaction-date">2025-10-01</span>
+                        <span class="transaction-date">01.10.2025</span>
                         <span class="transaction-description">
                             <i class="fas fa-exchange-alt"></i>
-                            Transfer to Savings
+                            Überweisung zum Sparkonto
                             <span class="transaction-id">TX-89317</span>
                         </span>
-                        <span class="transaction-account">SAVE *7829</span>
-                        <span class="transaction-amount">-$500.00</span>
+                        <span class="transaction-account">SPAR *7829</span>
+                        <span class="transaction-amount">-500,00 €</span>
                     </li>
                 </ul>
             </div>
             <div class="quick-actions">
-                <h2>Quick Actions</h2>
-                <button>Transfer Money</button>
+                <h2>Schnellzugriff</h2>
+                <button>Überweisung</button>
             </div>
         </section>
         <section id="profile" class="dashboard-section">
-            <h2>Account/Profile Properties</h2>
+            <h2>Profil-Einstellungen</h2>
             <div class="profile-info">
-                <p>Name: John Doe</p>
-                <p>Email: john.doe@email.com</p>
+                <p>Name: Max Mustermann</p>
+                <p>E-Mail: max.mustermann@email.de</p>
             </div>
         </section>
         <section id="privacy" class="dashboard-section">
-            <h2>Privacy Settings</h2>
-            <label><input type="checkbox" checked> Hide account balance</label><br>
-            <label><input type="checkbox"> Enable 2FA</label>
+            <h2>Datenschutz-Einstellungen</h2>
+            <label><input type="checkbox" checked> Kontostand ausblenden</label><br>
+            <label><input type="checkbox"> Zwei-Faktor-Authentifizierung aktivieren</label>
         </section>
         <section id="permissions" class="dashboard-section">
-            <h2>Fine Grain Permission Control</h2>
+            <h2>Berechtigungsverwaltung</h2>
             <ul id="permissionsList">
                 <li data-id="1" class="permission-item">
                     <div class="permission-info">
-                        <span class="company">Pension Fund</span>
-                        <span class="access-type">Read Balance</span>
+                        <div class="company-container">
+                            <div class="company-logo" style="background-image: url('https://www.deutsche-rentenversicherung.de/SharedDocs/bilder/DE/Deutsche_Rentenversicherung_Logo.png')"></div>
+                            <div class="company-details">
+                                <span class="company">Deutsche Rentenversicherung</span>
+                                <span class="verified-badge" title="Verifizierte Institution">
+                                    <i class="fas fa-check-circle"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="access-type">Kontostand einsehen</span>
                     </div>
                     <div class="permission-actions">
-                        <button class="revoke-btn" onclick="togglePermission(1)">Revoke</button>
-                        <button class="info-btn" 
-                            data-tooltip="When revoking access: &#10;• All API access tokens will be invalidated &#10;• Historical data access will be removed &#10;• Company must request new permission &#10;• Previous data sharing logs are preserved"
+                        <button class="revoke-btn" onclick="togglePermission(1)">Widerrufen</button>
+                        <button class="info-btn sage-green" 
+                            data-tooltip="Bei Widerruf der Berechtigung: &#10;• Alle API-Zugangstoken werden ungültig &#10;• Historischer Datenzugriff wird entfernt &#10;• Unternehmen muss neue Berechtigung beantragen &#10;• Bisherige Datenzugriffsprotokolle bleiben erhalten"
                             data-company="pension-fund"
                             onclick="showCompanyInfo(this)">
                             <i class="fas fa-info-circle"></i>
@@ -159,13 +167,21 @@
                 </li>
                 <li data-id="2" class="permission-item">
                     <div class="permission-info">
-                        <span class="company">Health Insurance</span>
-                        <span class="access-type">Read Personal Info</span>
+                        <div class="company-container">
+                            <div class="company-logo" style="background-image: url('https://www.tk.de/etc.clientlibs/default/assets/images/logo-tk.svg')"></div>
+                            <div class="company-details">
+                                <span class="company">Techniker Krankenkasse</span>
+                                <span class="verified-badge" title="Verifizierte Institution">
+                                    <i class="fas fa-check-circle"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <span class="access-type">Persönliche Daten einsehen</span>
                     </div>
                     <div class="permission-actions">
-                        <button class="revoke-btn" onclick="togglePermission(2)">Revoke</button>
-                        <button class="info-btn" 
-                            data-tooltip="When revoking access: &#10;• All API access tokens will be invalidated &#10;• Historical data access will be removed &#10;• Company must request new permission &#10;• Previous data sharing logs are preserved"
+                        <button class="revoke-btn" onclick="togglePermission(2)">Widerrufen</button>
+                        <button class="info-btn sage-green" 
+                            data-tooltip="Bei Widerruf der Berechtigung: &#10;• Alle API-Zugangstoken werden ungültig &#10;• Historischer Datenzugriff wird entfernt &#10;• Unternehmen muss neue Berechtigung beantragen &#10;• Bisherige Datenzugriffsprotokolle bleiben erhalten"
                             data-company="health-insurance"
                             onclick="showCompanyInfo(this)">
                             <i class="fas fa-info-circle"></i>
@@ -177,21 +193,40 @@
             <!-- Confirmation Dialog -->
             <div id="confirmationDialog" class="dialog">
                 <div class="dialog-content">
-                    <h3>Confirm Action</h3>
-                    <p id="dialogMessage">Are you sure you want to revoke this permission?</p>
+                    <h3>Aktion bestätigen</h3>
+                    <p id="dialogMessage">Möchten Sie diese Berechtigung wirklich widerrufen?</p>
                     <div class="dialog-buttons">
-                        <button onclick="confirmAction(true)" class="btn-confirm">Yes</button>
-                        <button onclick="confirmAction(false)" class="btn-cancel">No</button>
+                        <button onclick="confirmAction(true)" class="btn-confirm">Ja</button>
+                        <button onclick="confirmAction(false)" class="btn-cancel">Nein</button>
                     </div>
                 </div>
             </div>
         </section>
         <section id="messages" class="dashboard-section">
-            <h2>Messages</h2>
+            <h2>Nachrichten</h2>
             <div class="message">
-                <p><strong>Pension Fund</strong> requests access to your account info.</p>
-                <button>Grant Access</button>
-                <button>Deny</button>
+                <div class="message-content">
+                    <div class="company-container">
+                        <div class="company-logo" style="background-image: url('https://www.deutsche-rentenversicherung.de/SharedDocs/bilder/DE/Deutsche_Rentenversicherung_Logo.png')"></div>
+                        <div class="company-details">
+                            <strong>Deutsche Rentenversicherung</strong>
+                            <span class="verified-badge" title="Verifizierte Institution">
+                                <i class="fas fa-check-circle"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <p>möchte Zugriff auf Ihre Kontoinformationen.</p>
+                    <button class="info-btn sage-green" 
+                        data-tooltip="Die Deutsche Rentenversicherung benötigt Zugriff auf: &#10;• Kontostand &#10;• Monatliche Einzahlungen &#10;• Verwendungszweck der Rentenbeiträge"
+                        data-company="pension-fund"
+                        onclick="showCompanyInfo(this)">
+                        <i class="fas fa-info-circle"></i>
+                    </button>
+                </div>
+                <div class="message-actions">
+                    <button class="btn-confirm">Zugriff gewähren</button>
+                    <button class="btn-cancel">Ablehnen</button>
+                </div>
             </div>
         </section>
     </div>
@@ -200,27 +235,27 @@
         <div class="dialog-content company-info">
             <button class="close-btn" onclick="closeCompanyInfo()">×</button>
             <div id="companyInfoContent">
-                <h3 id="companyInfoTitle">Company Information</h3>
+                <h3 id="companyInfoTitle">Unternehmens-Information</h3>
                 <div class="info-section">
-                    <h4>Data Usage Policy</h4>
+                    <h4>Datennutzungsrichtlinie</h4>
                     <p id="dataUsagePolicy"></p>
                 </div>
                 <div class="info-section">
-                    <h4>Access Details</h4>
+                    <h4>Zugriffsinformationen</h4>
                     <p id="accessDetails"></p>
                 </div>
                 <div class="info-section">
-                    <h4>Security Measures</h4>
+                    <h4>Sicherheitsmaßnahmen</h4>
                     <p id="securityMeasures"></p>
                 </div>
                 <div class="info-section">
-                    <h4>Contact Information</h4>
+                    <h4>Kontaktinformationen</h4>
                     <p id="contactInfo"></p>
                 </div>
                 <div class="info-section">
                     <a href="#" id="moreInfoLink" class="more-info-link" target="_blank">
                         <i class="fas fa-external-link-alt"></i>
-                        Click here for more detailed information
+                        Hier klicken für detailliertere Informationen
                     </a>
                 </div>
             </div>
