@@ -1351,8 +1351,7 @@ input:focus, select:focus, textarea:focus {
 .permission-group .permission-list { display: block; padding: 0 1rem 1rem 1rem; margin: 0; }
 .permission-list .permission-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: none; padding: 0.75rem 0; }
 
-/* keep expanded rule for accordion behavior if needed */
-.permission-group.expanded .permission-list { display: block; }
+/* accordion removed entirely */
 
 /* --- Company permissions tabs (visual match to screenshot) --- */
 .permissions-tabs, .permissions-tabs[role="tablist"] {
