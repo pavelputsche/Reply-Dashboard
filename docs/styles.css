@@ -1348,7 +1348,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 /* ensure inline small permission cards are visible and compact */
-.permission-group .permission-list { display: block; padding: 0 1rem 1rem 1rem; margin: 0; }
+.permission-group .permission-list { display: none !important; padding: 0 1rem 1rem 1rem; margin: 0; }
 .permission-list .permission-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: none; padding: 0.75rem 0; }
 
 /* accordion removed entirely */
