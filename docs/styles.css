@@ -1280,3 +1280,55 @@ input:focus, select:focus, textarea:focus {
 /* ensure inline small permission cards are visible and compact */
 .permission-group .permission-list { display: flex; gap: 0.75rem; align-items: center; margin-left: 1rem; }
 .permission-list .permission-item { min-width: 200px; border-radius: 8px; padding: 0.6rem; }
+
+/* --- Company permissions tabs (visual match to screenshot) --- */
+.permissions-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+    flex-wrap: wrap;
+}
+
+.permissions-tabs [role="tab"] {
+    background: var(--neutral-light);
+    border: 1px solid var(--neutral-border);
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px; /* pill */
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.permissions-tabs [role="tab"][aria-selected="true"] {
+    background: var(--primary-color);
+    color: white;
+    border-color: transparent;
+}
+
+.permissions-tabpanels {
+    margin-top: 0.75rem;
+}
+
+.perm-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.perm-panel .permission-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.perm-panel .access-type i {
+    margin-right: 0.5rem;
+}
+
+.perm-panel .revoke-btn {
+    margin-top: 0.75rem;
+}
+
+@media (max-width: 900px) {
+    .permissions-tabs { overflow-x: auto; }
+}
