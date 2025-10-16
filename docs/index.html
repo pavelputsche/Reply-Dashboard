@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="theme-color" content="#6366f1">
-    <!-- Inline debug styles removed — visual rules live in styles.css -->
+    <!-- Temporary inline override to ensure permission panels stay hidden until final styles settle -->
+    <style>
+        /* Temporary: force permission lists hidden on dashboard */
+        .permission-group .permission-list { display: none !important; }
+    </style>
 </head>
 <body>
     <nav id="sidebar" class="sidebar">
