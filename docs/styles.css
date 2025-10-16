@@ -166,26 +166,8 @@ body {
 
 /* group-summary removed: kept intentionally blank to avoid unused rules */
 
-/* Expandable group: when .expanded is set, show permission-list inline */
-.permission-group .permission-list {
-    display: none;
-    padding: 0 1rem 1rem 1rem;
-}
-
-.permission-group.expanded .permission-list {
-    display: block;
-}
-
-/* Smooth expand/collapse: use max-height with transition */
-.permission-group .permission-list {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 260ms ease-in-out;
-}
-
-.permission-group.expanded .permission-list {
-    max-height: 1000px; /* large value to allow expansion */
-}
+/* Accordion removed: permission lists are always visible in the card */
+.permission-group .permission-list { padding: 0 1rem 1rem 1rem; }
 
 .company-container {
     display: flex;
