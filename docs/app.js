@@ -179,79 +179,98 @@ function closePermissionModal() {
     permissionModal.classList.remove('show');
 }
 
-// Wire group headers to open modal with their permission items
+// Wire group headers to navigate to company permissions page
 document.querySelectorAll('.permission-group .group-header').forEach(header => {
     // make header focusable and announceable
     header.setAttribute('tabindex', '0');
-    header.setAttribute('role', 'button');
-    header.setAttribute('aria-expanded', 'false');
+    header.setAttribute('role', 'link');
     header.style.cursor = 'pointer';
 
-    function toggleHeader(e) {
+    function openPage(e) {
+        // ignore clicks originating from info button
         if (e.type === 'click' && e.target.closest('.info-btn')) return;
+
         const group = header.closest('.permission-group');
-        const isExpanded = group.classList.contains('expanded');
-        // collapse others
-        document.querySelectorAll('.permission-group.expanded').forEach(g => {
-            if (g !== group) {
-                g.classList.remove('expanded');
-                const h = g.querySelector('.group-header');
-                if (h) h.setAttribute('aria-expanded', 'false');
-            }
+        const companyName = group.querySelector('.company').textContent.trim();
+        const companyId = group.getAttribute('data-id');
+
+        const items = [];
+        group.querySelectorAll('.permission-list .permission-item').forEach((pi, idx) => {
+            const label = pi.querySelector('.access-type').textContent.trim();
+            const since = pi.querySelector('.access-details') ? pi.querySelector('.access-details').textContent.trim() : '';
+            const iconEl = pi.querySelector('.access-type i');
+            const icon = iconEl ? iconEl.classList[1] : 'fa-circle';
+            items.push({ id: companyId + '-' + idx, label, since, icon });
         });
-        // toggle this one
-        if (isExpanded) {
-            group.classList.remove('expanded');
-            header.setAttribute('aria-expanded', 'false');
-        } else {
-            group.classList.add('expanded');
-            header.setAttribute('aria-expanded', 'true');
-        }
+
+        openCompanyPermissionsPage(companyName, items);
     }
 
-    header.addEventListener('click', toggleHeader);
+    header.addEventListener('click', openPage);
     header.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            toggleHeader(e);
-        }
-        if (e.key === 'Escape') {
-            // close any open group
-            document.querySelectorAll('.permission-group.expanded').forEach(g => g.classList.remove('expanded'));
+            openPage(e);
         }
     });
 });
 
-// Company permissions page handlers
+// Company permissions page handlers (tabs)
 const companyPermissionsSection = document.getElementById('companyPermissions');
-const companyPermissionsList = document.getElementById('companyPermissionsList');
+const permissionsTabs = document.getElementById('permissionsTabs');
+const permissionsTabpanels = document.getElementById('permissionsTabpanels');
 const companyPermissionsTitle = document.getElementById('companyPermissionsTitle');
 
-function openCompanyPermissionsPage(companyName, items) {
-    // set title
-    companyPermissionsTitle.textContent = companyName + ' — Berechtigungen';
-    companyPermissionsList.innerHTML = '';
+function renderPermissionTabs(items) {
+    permissionsTabs.innerHTML = '';
+    permissionsTabpanels.innerHTML = '';
 
-    items.forEach(item => {
-        const li = document.createElement('li');
-        li.className = 'permission-item';
+    items.forEach((item, idx) => {
+        const tabId = `perm-tab-${idx}`;
+        const panelId = `perm-panel-${idx}`;
 
-        const info = document.createElement('div');
-        info.className = 'permission-info';
-        info.innerHTML = `<span class="access-type"><i class="fas ${item.icon}"></i>${item.label}</span><span class="access-details">${item.since || ''}</span>`;
+        const tab = document.createElement('button');
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+        tab.setAttribute('aria-controls', panelId);
+        tab.id = tabId;
+        tab.textContent = item.label;
+        tab.addEventListener('click', () => {
+            // toggle selection
+            permissionsTabs.querySelectorAll('[role="tab"]').forEach(t => t.setAttribute('aria-selected', 'false'));
+            tab.setAttribute('aria-selected', 'true');
+            // show panel
+            permissionsTabpanels.querySelectorAll('.permissions-panel').forEach(p => p.style.display = 'none');
+            document.getElementById(panelId).style.display = 'block';
+        });
 
-        const btn = document.createElement('button');
-        btn.className = 'revoke-btn small';
-        btn.textContent = 'Widerrufen';
-        btn.addEventListener('click', () => {
+        const panel = document.createElement('div');
+        panel.className = 'permissions-panel permissions-tabpanel';
+        panel.id = panelId;
+        panel.style.display = idx === 0 ? 'block' : 'none';
+        panel.innerHTML = `
+            <div class="permission-info">
+                <span class="access-type"><i class="fas ${item.icon}"></i>${item.label}</span>
+                <span class="access-details">${item.since || ''}</span>
+            </div>
+            <div style="margin-top:12px;">
+                <button class="revoke-btn small">Widerrufen</button>
+            </div>
+        `;
+        // revoke button handler
+        panel.querySelector('.revoke-btn').addEventListener('click', () => {
             currentPermissionId = item.id;
             showDialog(`Möchten Sie die Berechtigung "${item.label}" wirklich widerrufen?`);
         });
 
-        li.appendChild(info);
-        li.appendChild(btn);
-        companyPermissionsList.appendChild(li);
+        permissionsTabs.appendChild(tab);
+        permissionsTabpanels.appendChild(panel);
     });
+}
+
+function openCompanyPermissionsPage(companyName, items) {
+    companyPermissionsTitle.textContent = companyName + ' — Berechtigungen';
+    renderPermissionTabs(items);
 
     // hide other sections and show company permissions
     sections.forEach(section => section.style.display = 'none');
