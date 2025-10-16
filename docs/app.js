@@ -312,15 +312,6 @@ const companyPermissionsSection = document.getElementById('companyPermissions');
 const companyPermissionsList = document.getElementById('companyPermissionsList');
 const companyPermissionsTitle = document.getElementById('companyPermissionsTitle');
 
-// Runtime debug: report permission group structure on load
-window.addEventListener('load', () => {
-    const groups = document.querySelectorAll('.permission-group');
-    console.debug('Permission groups found:', groups.length);
-    groups.forEach((g, i) => {
-        console.debug(`group[${i}] has perm-card:`, !!g.querySelector('.perm-card'));
-    });
-});
-
 function openCompanyPermissionsPage(companyName, items) {
     // render as tabs
     companyPermissionsTitle.textContent = companyName + ' — Berechtigungen';
