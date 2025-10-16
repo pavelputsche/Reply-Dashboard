@@ -222,6 +222,27 @@ document.querySelectorAll('.permission-group .group-header').forEach(header => {
     });
 });
 
+// Wire 'Anzeigen' buttons in the summary-box to open the company permissions page
+document.querySelectorAll('.permission-group .open-all').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const group = btn.closest('.permission-group');
+        const companyName = group.querySelector('.company').textContent.trim();
+        const companyId = group.getAttribute('data-id');
+
+        const items = [];
+        group.querySelectorAll('.permission-list .permission-item').forEach((pi, idx) => {
+            const label = pi.querySelector('.access-type').textContent.trim();
+            const since = pi.querySelector('.access-details') ? pi.querySelector('.access-details').textContent.trim() : '';
+            const iconEl = pi.querySelector('.access-type i');
+            const icon = iconEl ? iconEl.classList[1] : 'fa-circle';
+            items.push({ id: companyId + '-' + idx, label, since, icon });
+        });
+
+        openCompanyPermissionsPage(companyName, items);
+    });
+});
+
 // Company permissions page handlers
 const companyPermissionsSection = document.getElementById('companyPermissions');
 const companyPermissionsList = document.getElementById('companyPermissionsList');

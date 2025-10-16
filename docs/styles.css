@@ -292,7 +292,7 @@ body {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s;
 }
 
 .revoke-btn.small:hover {
@@ -1253,3 +1253,30 @@ input:focus, select:focus, textarea:focus {
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(2px);
 }
+
+/* summary box on permission card */
+.summary-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+}
+.summary-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+.summary-box .open-all.small {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ensure inline small permission cards are visible and compact */
+.permission-group .permission-list { display: flex; gap: 0.75rem; align-items: center; margin-left: 1rem; }
+.permission-list .permission-item { min-width: 200px; border-radius: 8px; padding: 0.6rem; }
