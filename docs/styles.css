@@ -129,6 +129,12 @@ body {
     transition: transform 150ms ease;
 }
 
+/* Focus styles for keyboard users */
+.permission-group .group-header:focus {
+    outline: 3px solid rgba(99,102,241,0.15);
+    outline-offset: 3px;
+}
+
 .group-summary {
     font-size: 0.9rem;
     color: var(--text-secondary);
