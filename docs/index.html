@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reply Banking Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <link id="mainStylesheet" rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="theme-color" content="#6366f1">
+    <!-- Inline debug styles removed — visual rules live in styles.css -->
 </head>
 <body>
     <nav id="sidebar" class="sidebar">
@@ -142,7 +143,8 @@
         <section id="permissions" class="dashboard-section">
             <h2>Berechtigungsverwaltung</h2>
             <ul id="permissionsList">
-                <li data-id="1" class="permission-group">
+                <li data-id="1" class="permission-group" data-permissions='[{"label":"Kontostand einsehen","since":"Zugriff seit: 01.10.2025","icon":"fa-wallet"},{"label":"Investitionen einsehen","since":"Zugriff seit: 01.10.2025","icon":"fa-chart-line"},{"label":"Transaktionshistorie","since":"Zugriff seit: 01.10.2025","icon":"fa-history"}]'>
+                    <div class="perm-card">
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo">
@@ -153,8 +155,11 @@
                                 <span class="verified-badge" title="Verifizierte Institution">
                                     <i class="fas fa-check-circle"></i>
                                 </span>
-                                <div class="group-summary">Alle Berechtigungen anzeigen</div>
                             </div>
+                        </div>
+                        <div class="summary-box" title="Alle Berechtigungen anzeigen">
+                            <div class="summary-text">Alle Berechtigungen anzeigen</div>
+                            <button class="open-all small" aria-label="Alle Berechtigungen anzeigen">Anzeigen</button>
                         </div>
                         <button class="info-btn sage-green" 
                             data-tooltip="Informationen zur Institution und deren Berechtigungen"
@@ -163,31 +168,10 @@
                             <i class="fas fa-info-circle"></i>
                         </button>
                     </div>
-                    <ul class="permission-list">
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-wallet"></i>Kontostand einsehen</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('drv-balance')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-chart-line"></i>Investitionen einsehen</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('drv-investments')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-history"></i>Transaktionshistorie</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('drv-history')">Widerrufen</button>
-                        </li>
-                    </ul>
+                    </div>
                 </li>
-                <li data-id="2" class="permission-group">
+                <li data-id="2" class="permission-group" data-permissions='[{"label":"Persönliche Daten einsehen","since":"Zugriff seit: 01.10.2025","icon":"fa-user-shield"},{"label":"Krankenversicherungsdaten","since":"Zugriff seit: 01.10.2025","icon":"fa-file-medical"},{"label":"Behandlungshistorie","since":"Zugriff seit: 01.10.2025","icon":"fa-notes-medical"}]'>
+                    <div class="perm-card">
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo tk-logo">
@@ -198,7 +182,6 @@
                                 <span class="verified-badge" title="Verifizierte Institution">
                                     <i class="fas fa-check-circle"></i>
                                 </span>
-                                <div class="group-summary">Alle Berechtigungen anzeigen</div>
                             </div>
                         </div>
                         <button class="info-btn sage-green" 
@@ -208,31 +191,10 @@
                             <i class="fas fa-info-circle"></i>
                         </button>
                     </div>
-                    <ul class="permission-list">
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-user-shield"></i>Persönliche Daten einsehen</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('tk-personal')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-file-medical"></i>Krankenversicherungsdaten</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('tk-insurance')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-notes-medical"></i>Behandlungshistorie</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('tk-history')">Widerrufen</button>
-                        </li>
-                    </ul>
+                    </div>
                 </li>
-                <li data-id="3" class="permission-group">
+                <li data-id="3" class="permission-group" data-permissions='[{"label":"Bonitätsscore einsehen","since":"Zugriff seit: 01.09.2025","icon":"fa-credit-score"},{"label":"Kredithistorie","since":"Zugriff seit: 01.09.2025","icon":"fa-history"}]'>
+                    <div class="perm-card">
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo schufa-logo">
@@ -252,24 +214,10 @@
                             <i class="fas fa-info-circle"></i>
                         </button>
                     </div>
-                    <ul class="permission-list">
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-credit-score"></i>Bonitätsscore einsehen</span>
-                                <span class="access-details">Zugriff seit: 01.09.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('schufa-score')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-history"></i>Kredithistorie</span>
-                                <span class="access-details">Zugriff seit: 01.09.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('schufa-history')">Widerrufen</button>
-                        </li>
-                    </ul>
+                    </div>
                 </li>
-                <li data-id="4" class="permission-group">
+                <li data-id="4" class="permission-group" data-permissions='[{"label":"Überweisungshistorie","since":"Zugriff seit: 15.09.2025","icon":"fa-exchange-alt"},{"label":"Sparkonten einsehen","since":"Zugriff seit: 15.09.2025","icon":"fa-piggy-bank"},{"label":"Kreditkartendaten","since":"Zugriff seit: 15.09.2025","icon":"fa-credit-card"}]'>
+                    <div class="perm-card">
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo db-logo">
@@ -289,31 +237,10 @@
                             <i class="fas fa-info-circle"></i>
                         </button>
                     </div>
-                    <ul class="permission-list">
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-exchange-alt"></i>Überweisungshistorie</span>
-                                <span class="access-details">Zugriff seit: 15.09.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('db-transfers')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-piggy-bank"></i>Sparkonten einsehen</span>
-                                <span class="access-details">Zugriff seit: 15.09.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('db-savings')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-credit-card"></i>Kreditkartendaten</span>
-                                <span class="access-details">Zugriff seit: 15.09.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('db-credit')">Widerrufen</button>
-                        </li>
-                    </ul>
+                    </div>
                 </li>
-                <li data-id="5" class="permission-group">
+                <li data-id="5" class="permission-group" data-permissions='[{"label":"Portfolio-Übersicht","since":"Zugriff seit: 01.10.2025","icon":"fa-chart-pie"},{"label":"Anlagepräferenzen","since":"Zugriff seit: 01.10.2025","icon":"fa-money-bill-trend-up"},{"label":"Steuerrelevante Daten","since":"Zugriff seit: 01.10.2025","icon":"fa-file-invoice-dollar"},{"label":"Handelsaktivitäten","since":"Zugriff seit: 01.10.2025","icon":"fa-handshake"}]'>
+                    <div class="perm-card">
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo blackrock-logo">
@@ -333,36 +260,7 @@
                             <i class="fas fa-info-circle"></i>
                         </button>
                     </div>
-                    <ul class="permission-list">
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-chart-pie"></i>Portfolio-Übersicht</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('br-portfolio')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-money-bill-trend-up"></i>Anlagepräferenzen</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('br-preferences')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-file-invoice-dollar"></i>Steuerrelevante Daten</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('br-tax')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-handshake"></i>Handelsaktivitäten</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('br-trading')">Widerrufen</button>
-                        </li>
-                    </ul>
+                    </div>
                 </li>
             </ul>
             
@@ -411,12 +309,19 @@
                 </div>
             </div>
         </section>
-        <!-- Company Permissions Detail Page -->
+        <!-- Company Permissions Detail Page (tabs) -->
         <section id="companyPermissions" class="dashboard-section" style="display:none;">
             <div class="company-permissions-container">
                 <button class="back-btn" onclick="closeCompanyPermissionsPage()">← Zurück</button>
                 <h2 id="companyPermissionsTitle">Berechtigungen</h2>
-                <ul id="companyPermissionsList" class="permission-list detailed"></ul>
+
+                <div id="permissionsTabs" class="permissions-tabs" role="tablist" aria-label="Berechtigungen">
+                    <!-- tabs injected here -->
+                </div>
+
+                <div id="permissionsTabpanels" class="permissions-tabpanels">
+                    <!-- tab panels injected here -->
+                </div>
             </div>
         </section>
     </div>
@@ -461,5 +366,16 @@
         </div>
     </div>
     <script src="app.js"></script>
+    <script>
+        // Cache-bust stylesheet during development to ensure latest CSS is loaded
+        (function(){
+            const link = document.getElementById('mainStylesheet');
+            if (link) {
+                const sep = link.href.includes('?') ? '&' : '?';
+                link.href = link.href + sep + 'v=' + Date.now();
+            }
+            console.debug('Stylesheet cache-bust applied');
+        })();
+    </script>
 </body>
 </html>
