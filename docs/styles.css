@@ -165,13 +165,7 @@ body {
 
 /* Smooth expand/collapse: use max-height with transition */
 .permission-group .permission-list {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 260ms ease-in-out;
-}
-
-.permission-group.expanded .permission-list {
-    max-height: 1000px; /* large value to allow expansion */
+    display: none; /* keep inline lists hidden; show on detail page */
 }
 
 .company-container {
