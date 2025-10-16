@@ -102,6 +102,31 @@ const companyInfo = {
         contact: 'Datenschutzabteilung: datenschutz@tk.de\nTelefon: 0800 285 85 85\nKundenservice: service@tk.de',
         moreInfoUrl: 'https://www.tk.de/datenschutz'
     }
+    ,
+    'schufa': {
+        title: 'SCHUFA - Datennutzung',
+        dataUsage: 'Die SCHUFA verarbeitet Bonitätsinformationen, um Kreditwürdigkeit zu prüfen und Betrugsrisiken zu reduzieren. Es werden ausschließlich die für die Bonitätsprüfung relevanten Daten abgefragt.',
+        accessDetails: 'Zugriff auf Kredit- und Bonitätsdaten, Auskunfteiinformationen sowie historische Kreditereignisse. Keine Einsicht in Bankkontodetails oder Transaktionsinhalte.',
+        security: 'Sensible Daten werden verschlüsselt übertragen und nach internen Richtlinien gespeichert. Zugriff erfolgt über gesicherte Schnittstellen mit Protokollierung.',
+        contact: 'Kundencenter: kundenservice@schufa.de\nTelefon: 0611 92780',
+        moreInfoUrl: 'https://www.schufa.de/de/datenschutz'
+    },
+    'deutsche-bank': {
+        title: 'Deutsche Bank - Datennutzung',
+        dataUsage: 'Die Deutsche Bank nutzt Kontoinformationen zur Abwicklung von Zahlungsdienstleistungen, Betrugsprävention und Kontoführung. Daten dienen auch zur Personalisierung von Services.',
+        accessDetails: 'Zugriff auf Kontostand, Kontotransaktionen, Kontoinhaber-Informationen und produktbezogene Daten. Transaktionsinhalte werden nur im Rahmen der Dienstleistung verarbeitet.',
+        security: 'Bankinterne Sicherheitsstandards, TLS-verschlüsselte Übertragung und rollenbasierte Zugriffskontrollen. Regelmäßige Sicherheitsaudits.',
+        contact: 'Datenschutz: datenschutz@db.com\nTelefon: 069 9100',
+        moreInfoUrl: 'https://www.db.com/datenschutz'
+    },
+    'blackrock': {
+        title: 'BlackRock - Datennutzung',
+        dataUsage: 'BlackRock verwendet Anlage- und Kontoinformationen zur Verwaltung von Portfolios, zur Risikobewertung und zur Erbringung von Investmentdienstleistungen.',
+        accessDetails: 'Zugriff auf Portfoliodaten, Investitionspräferenzen und steuerrelevante Informationen; Transaktionsdetails werden zur Performance‑Berechnung verarbeitet.',
+        security: 'Datenverarbeitung nach internationalen Sicherheitsstandards, verschlüsselte Speicherung und Zugriffsbeschränkungen für autorisiertes Personal.',
+        contact: 'Datenschutz: privacy@blackrock.com\nTelefon: +49 69 9999 0000',
+        moreInfoUrl: 'https://www.blackrock.com/corporate/privacy'
+    }
 };
 
 // Function to show company information
