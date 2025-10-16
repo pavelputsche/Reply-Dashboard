@@ -217,18 +217,6 @@ body {
     background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,252,0.95));
 }
 
-/* internal card wrapper for consistent pill-like appearance */
-.perm-card {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 0.75rem;
-    border-radius: 12px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,252,0.98));
-    border: 1px solid rgba(226,232,240,0.8);
-}
-
 /* Make the header content spread across the full card with company on the left and actions on the right */
 .permission-group .company-container {
     display: flex;
