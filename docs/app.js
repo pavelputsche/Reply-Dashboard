@@ -138,3 +138,63 @@ document.querySelectorAll('.dialog').forEach(dialog => {
         }
     });
 });
+
+// Permission modal logic
+const permissionModal = document.getElementById('permissionModal');
+const permissionModalList = document.getElementById('permissionModalList');
+const permissionModalTitle = document.getElementById('permissionModalTitle');
+
+function openPermissionModal(companyName, permissionItems) {
+    // set title
+    permissionModalTitle.textContent = companyName + ' — angeforderte Berechtigungen';
+    // clear list
+    permissionModalList.innerHTML = '';
+
+    permissionItems.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'permission-item';
+
+        const info = document.createElement('div');
+        info.className = 'permission-info';
+        info.innerHTML = `<span class="access-type"><i class="fas ${item.icon}"></i>${item.label}</span><span class="access-details">${item.since || ''}</span>`;
+
+        const btn = document.createElement('button');
+        btn.className = 'revoke-btn small';
+        btn.textContent = 'Widerrufen';
+        btn.addEventListener('click', () => {
+            // show confirmation dialog
+            currentPermissionId = item.id;
+            showDialog(`Möchten Sie die Berechtigung "${item.label}" wirklich widerrufen?`);
+        });
+
+        li.appendChild(info);
+        li.appendChild(btn);
+        permissionModalList.appendChild(li);
+    });
+
+    permissionModal.classList.add('show');
+}
+
+function closePermissionModal() {
+    permissionModal.classList.remove('show');
+}
+
+// Wire group headers to open modal with their permission items
+document.querySelectorAll('.permission-group .group-header').forEach(header => {
+    header.style.cursor = 'pointer';
+    header.addEventListener('click', () => {
+        const group = header.closest('.permission-group');
+        const companyName = group.querySelector('.company').textContent.trim();
+        // collect permission items from inner .permission-list if present
+        const items = [];
+        group.querySelectorAll('.permission-list .permission-item').forEach((pi, idx) => {
+            const label = pi.querySelector('.access-type').textContent.trim();
+            const since = pi.querySelector('.access-details') ? pi.querySelector('.access-details').textContent.trim() : '';
+            const iconEl = pi.querySelector('.access-type i');
+            const icon = iconEl ? iconEl.classList[1] : 'fa-circle';
+            items.push({ id: group.getAttribute('data-id') + '-' + idx, label, since, icon });
+        });
+
+        openPermissionModal(companyName, items);
+    });
+});
