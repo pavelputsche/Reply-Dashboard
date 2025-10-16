@@ -105,6 +105,18 @@ body {
     overflow: hidden;
 }
 
+/* Layout: two columns for permission groups */
+#permissionsList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    align-items: start;
+}
+
+.permission-group {
+    width: 100%;
+}
+
 .group-header {
     padding: 1rem;
     background: white;
