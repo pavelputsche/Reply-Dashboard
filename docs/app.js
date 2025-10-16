@@ -181,27 +181,12 @@ function closePermissionModal() {
 
 // Wire group headers to open modal with their permission items
 document.querySelectorAll('.permission-group .group-header').forEach(header => {
-    // only open company page when header (card) is clicked, not the info button
+    // only toggle expansion when header (card) is clicked, not the info button
     header.style.cursor = 'pointer';
     header.addEventListener('click', (e) => {
-        // if click came from info button, ignore here (info button has .info-btn class)
         if (e.target.closest('.info-btn')) return;
-
         const group = header.closest('.permission-group');
-        const companyName = group.querySelector('.company').textContent.trim();
-        const companyId = group.getAttribute('data-id');
-
-        // collect permission items from inner .permission-list if present
-        const items = [];
-        group.querySelectorAll('.permission-list .permission-item').forEach((pi, idx) => {
-            const label = pi.querySelector('.access-type').textContent.trim();
-            const since = pi.querySelector('.access-details') ? pi.querySelector('.access-details').textContent.trim() : '';
-            const iconEl = pi.querySelector('.access-type i');
-            const icon = iconEl ? iconEl.classList[1] : 'fa-circle';
-            items.push({ id: companyId + '-' + idx, label, since, icon });
-        });
-
-        openCompanyPermissionsPage(companyName, items);
+        group.classList.toggle('expanded');
     });
 });
 

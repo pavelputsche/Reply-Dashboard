@@ -129,6 +129,22 @@ body {
     transition: transform 150ms ease;
 }
 
+.group-summary {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+/* Expandable group: when .expanded is set, show permission-list inline */
+.permission-group .permission-list {
+    display: none;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.permission-group.expanded .permission-list {
+    display: block;
+}
+
 .company-container {
     display: flex;
     align-items: center;
