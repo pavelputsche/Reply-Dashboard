@@ -232,13 +232,31 @@ document.querySelectorAll('.permission-group .group-header').forEach(header => {
         const companyId = group.getAttribute('data-id');
 
         const items = [];
-        group.querySelectorAll('.permission-list .permission-item').forEach((pi, idx) => {
-            const label = pi.querySelector('.access-type').textContent.trim();
-            const since = pi.querySelector('.access-details') ? pi.querySelector('.access-details').textContent.trim() : '';
-            const iconEl = pi.querySelector('.access-type i');
-            const icon = iconEl ? iconEl.classList[1] : 'fa-circle';
-            items.push({ id: companyId + '-' + idx, label, since, icon });
-        });
+        // Prefer dataset-driven permissions (removed accordion markup)
+        const permsData = group.getAttribute('data-permissions');
+        if (permsData) {
+            try {
+                const perms = JSON.parse(permsData);
+                perms.forEach((p, idx) => items.push({ id: companyId + '-' + idx, label: p.label, since: p.since || '', icon: p.icon || 'fa-circle' }));
+            } catch (err) {
+                // fallback to DOM if parsing fails
+                group.querySelectorAll('.permission-list .permission-item').forEach((pi, idx) => {
+                    const label = pi.querySelector('.access-type').textContent.trim();
+                    const since = pi.querySelector('.access-details') ? pi.querySelector('.access-details').textContent.trim() : '';
+                    const iconEl = pi.querySelector('.access-type i');
+                    const icon = iconEl ? iconEl.classList[1] : 'fa-circle';
+                    items.push({ id: companyId + '-' + idx, label, since, icon });
+                });
+            }
+        } else {
+            group.querySelectorAll('.permission-list .permission-item').forEach((pi, idx) => {
+                const label = pi.querySelector('.access-type').textContent.trim();
+                const since = pi.querySelector('.access-details') ? pi.querySelector('.access-details').textContent.trim() : '';
+                const iconEl = pi.querySelector('.access-type i');
+                const icon = iconEl ? iconEl.classList[1] : 'fa-circle';
+                items.push({ id: companyId + '-' + idx, label, since, icon });
+            });
+        }
 
         openCompanyPermissionsPage(companyName, items);
     }
@@ -261,13 +279,29 @@ document.querySelectorAll('.permission-group .open-all').forEach(btn => {
         const companyId = group.getAttribute('data-id');
 
         const items = [];
-        group.querySelectorAll('.permission-list .permission-item').forEach((pi, idx) => {
-            const label = pi.querySelector('.access-type').textContent.trim();
-            const since = pi.querySelector('.access-details') ? pi.querySelector('.access-details').textContent.trim() : '';
-            const iconEl = pi.querySelector('.access-type i');
-            const icon = iconEl ? iconEl.classList[1] : 'fa-circle';
-            items.push({ id: companyId + '-' + idx, label, since, icon });
-        });
+        const permsData2 = group.getAttribute('data-permissions');
+        if (permsData2) {
+            try {
+                const perms = JSON.parse(permsData2);
+                perms.forEach((p, idx) => items.push({ id: companyId + '-' + idx, label: p.label, since: p.since || '', icon: p.icon || 'fa-circle' }));
+            } catch (err) {
+                group.querySelectorAll('.permission-list .permission-item').forEach((pi, idx) => {
+                    const label = pi.querySelector('.access-type').textContent.trim();
+                    const since = pi.querySelector('.access-details') ? pi.querySelector('.access-details').textContent.trim() : '';
+                    const iconEl = pi.querySelector('.access-type i');
+                    const icon = iconEl ? iconEl.classList[1] : 'fa-circle';
+                    items.push({ id: companyId + '-' + idx, label, since, icon });
+                });
+            }
+        } else {
+            group.querySelectorAll('.permission-list .permission-item').forEach((pi, idx) => {
+                const label = pi.querySelector('.access-type').textContent.trim();
+                const since = pi.querySelector('.access-details') ? pi.querySelector('.access-details').textContent.trim() : '';
+                const iconEl = pi.querySelector('.access-type i');
+                const icon = iconEl ? iconEl.classList[1] : 'fa-circle';
+                items.push({ id: companyId + '-' + idx, label, since, icon });
+            });
+        }
 
         openCompanyPermissionsPage(companyName, items);
     });

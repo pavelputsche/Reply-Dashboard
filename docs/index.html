@@ -147,7 +147,7 @@
         <section id="permissions" class="dashboard-section">
             <h2>Berechtigungsverwaltung</h2>
             <ul id="permissionsList">
-                <li data-id="1" class="permission-group">
+                <li data-id="1" class="permission-group" data-permissions='[{"label":"Kontostand einsehen","since":"Zugriff seit: 01.10.2025","icon":"fa-wallet"},{"label":"Investitionen einsehen","since":"Zugriff seit: 01.10.2025","icon":"fa-chart-line"},{"label":"Transaktionshistorie","since":"Zugriff seit: 01.10.2025","icon":"fa-history"}]'>
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo">
@@ -171,31 +171,8 @@
                             <i class="fas fa-info-circle"></i>
                         </button>
                     </div>
-                    <ul class="permission-list">
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-wallet"></i>Kontostand einsehen</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('drv-balance')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-chart-line"></i>Investitionen einsehen</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('drv-investments')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-history"></i>Transaktionshistorie</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('drv-history')">Widerrufen</button>
-                        </li>
-                    </ul>
                 </li>
-                <li data-id="2" class="permission-group">
+                <li data-id="2" class="permission-group" data-permissions='[{"label":"Persönliche Daten einsehen","since":"Zugriff seit: 01.10.2025","icon":"fa-user-shield"},{"label":"Krankenversicherungsdaten","since":"Zugriff seit: 01.10.2025","icon":"fa-file-medical"},{"label":"Behandlungshistorie","since":"Zugriff seit: 01.10.2025","icon":"fa-notes-medical"}]'>
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo tk-logo">
@@ -215,31 +192,8 @@
                             <i class="fas fa-info-circle"></i>
                         </button>
                     </div>
-                    <ul class="permission-list">
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-user-shield"></i>Persönliche Daten einsehen</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('tk-personal')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-file-medical"></i>Krankenversicherungsdaten</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('tk-insurance')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-notes-medical"></i>Behandlungshistorie</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('tk-history')">Widerrufen</button>
-                        </li>
-                    </ul>
                 </li>
-                <li data-id="3" class="permission-group">
+                <li data-id="3" class="permission-group" data-permissions='[{"label":"Bonitätsscore einsehen","since":"Zugriff seit: 01.09.2025","icon":"fa-credit-score"},{"label":"Kredithistorie","since":"Zugriff seit: 01.09.2025","icon":"fa-history"}]'>
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo schufa-logo">
@@ -259,24 +213,8 @@
                             <i class="fas fa-info-circle"></i>
                         </button>
                     </div>
-                    <ul class="permission-list">
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-credit-score"></i>Bonitätsscore einsehen</span>
-                                <span class="access-details">Zugriff seit: 01.09.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('schufa-score')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-history"></i>Kredithistorie</span>
-                                <span class="access-details">Zugriff seit: 01.09.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('schufa-history')">Widerrufen</button>
-                        </li>
-                    </ul>
                 </li>
-                <li data-id="4" class="permission-group">
+                <li data-id="4" class="permission-group" data-permissions='[{"label":"Überweisungshistorie","since":"Zugriff seit: 15.09.2025","icon":"fa-exchange-alt"},{"label":"Sparkonten einsehen","since":"Zugriff seit: 15.09.2025","icon":"fa-piggy-bank"},{"label":"Kreditkartendaten","since":"Zugriff seit: 15.09.2025","icon":"fa-credit-card"}]'>
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo db-logo">
@@ -296,31 +234,8 @@
                             <i class="fas fa-info-circle"></i>
                         </button>
                     </div>
-                    <ul class="permission-list">
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-exchange-alt"></i>Überweisungshistorie</span>
-                                <span class="access-details">Zugriff seit: 15.09.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('db-transfers')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-piggy-bank"></i>Sparkonten einsehen</span>
-                                <span class="access-details">Zugriff seit: 15.09.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('db-savings')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-credit-card"></i>Kreditkartendaten</span>
-                                <span class="access-details">Zugriff seit: 15.09.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('db-credit')">Widerrufen</button>
-                        </li>
-                    </ul>
                 </li>
-                <li data-id="5" class="permission-group">
+                <li data-id="5" class="permission-group" data-permissions='[{"label":"Portfolio-Übersicht","since":"Zugriff seit: 01.10.2025","icon":"fa-chart-pie"},{"label":"Anlagepräferenzen","since":"Zugriff seit: 01.10.2025","icon":"fa-money-bill-trend-up"},{"label":"Steuerrelevante Daten","since":"Zugriff seit: 01.10.2025","icon":"fa-file-invoice-dollar"},{"label":"Handelsaktivitäten","since":"Zugriff seit: 01.10.2025","icon":"fa-handshake"}]'>
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo blackrock-logo">
@@ -340,36 +255,6 @@
                             <i class="fas fa-info-circle"></i>
                         </button>
                     </div>
-                    <ul class="permission-list">
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-chart-pie"></i>Portfolio-Übersicht</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('br-portfolio')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-money-bill-trend-up"></i>Anlagepräferenzen</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('br-preferences')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-file-invoice-dollar"></i>Steuerrelevante Daten</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('br-tax')">Widerrufen</button>
-                        </li>
-                        <li class="permission-item">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-handshake"></i>Handelsaktivitäten</span>
-                                <span class="access-details">Zugriff seit: 01.10.2025</span>
-                            </div>
-                            <button class="revoke-btn small" onclick="togglePermission('br-trading')">Widerrufen</button>
-                        </li>
-                    </ul>
                 </li>
             </ul>
             
