@@ -127,19 +127,6 @@
                 <button>Überweisung</button>
             </div>
         </section>
-        <!-- Company permissions detail page (tabs) -->
-        <section id="companyPermissions" class="dashboard-section" style="display:none;">
-            <div class="company-permissions-container">
-                <button class="back-btn" onclick="closeCompanyPermissionsPage()">← Zurück</button>
-                <h2 id="companyPermissionsTitle">Institution — Berechtigungen</h2>
-                <div class="permissions-tabs" id="permissionsTabs" role="tablist" aria-label="Berechtigungen">
-                    <!-- tabs injected here -->
-                </div>
-                <div class="permissions-tabpanels" id="permissionsTabpanels">
-                    <!-- panels injected here -->
-                </div>
-            </div>
-        </section>
         <section id="profile" class="dashboard-section">
             <h2>Profil-Einstellungen</h2>
             <div class="profile-info">
@@ -157,7 +144,6 @@
             <ul id="permissionsList">
                 <li data-id="1" class="permission-group">
                     <div class="group-header">
-                        <div class="group-content">
                         <div class="company-container">
                             <div class="company-logo">
                                 <img src="assets/drv-logo.png" alt="Deutsche Rentenversicherung" class="logo-image">
@@ -176,19 +162,8 @@
                             onclick="showCompanyInfo(this)">
                             <i class="fas fa-info-circle"></i>
                         </button>
-                        </div>
                     </div>
-                    <!-- Visible summary card; actual permission details are kept hidden and used by the detail page -->
                     <ul class="permission-list">
-                        <li class="permission-item permissions-summary-item" data-summary="true">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-list"></i>Alle Berechtigungen anzeigen</span>
-                            </div>
-                            <button class="open-all small">Anzeigen</button>
-                        </li>
-                    </ul>
-
-                    <ul class="permission-details" style="display:none;">
                         <li class="permission-item">
                             <div class="permission-info">
                                 <span class="access-type"><i class="fas fa-wallet"></i>Kontostand einsehen</span>
@@ -214,7 +189,6 @@
                 </li>
                 <li data-id="2" class="permission-group">
                     <div class="group-header">
-                        <div class="group-content">
                         <div class="company-container">
                             <div class="company-logo tk-logo">
                                 <span>T</span>
@@ -233,17 +207,8 @@
                             onclick="showCompanyInfo(this)">
                             <i class="fas fa-info-circle"></i>
                         </button>
-                        </div>
                     </div>
                     <ul class="permission-list">
-                        <li class="permission-item permissions-summary-item" data-summary="true">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-list"></i>Alle Berechtigungen anzeigen</span>
-                            </div>
-                            <button class="open-all small">Anzeigen</button>
-                        </li>
-                    </ul>
-                    <ul class="permission-details" style="display:none;">
                         <li class="permission-item">
                             <div class="permission-info">
                                 <span class="access-type"><i class="fas fa-user-shield"></i>Persönliche Daten einsehen</span>
@@ -269,7 +234,6 @@
                 </li>
                 <li data-id="3" class="permission-group">
                     <div class="group-header">
-                        <div class="group-content">
                         <div class="company-container">
                             <div class="company-logo schufa-logo">
                                 <span>S</span>
@@ -287,17 +251,8 @@
                             onclick="showCompanyInfo(this)">
                             <i class="fas fa-info-circle"></i>
                         </button>
-                        </div>
                     </div>
                     <ul class="permission-list">
-                        <li class="permission-item permissions-summary-item" data-summary="true">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-list"></i>Alle Berechtigungen anzeigen</span>
-                            </div>
-                            <button class="open-all small">Anzeigen</button>
-                        </li>
-                    </ul>
-                    <ul class="permission-details" style="display:none;">
                         <li class="permission-item">
                             <div class="permission-info">
                                 <span class="access-type"><i class="fas fa-credit-score"></i>Bonitätsscore einsehen</span>
@@ -316,7 +271,6 @@
                 </li>
                 <li data-id="4" class="permission-group">
                     <div class="group-header">
-                        <div class="group-content">
                         <div class="company-container">
                             <div class="company-logo db-logo">
                                 <span>DB</span>
@@ -334,17 +288,8 @@
                             onclick="showCompanyInfo(this)">
                             <i class="fas fa-info-circle"></i>
                         </button>
-                        </div>
                     </div>
                     <ul class="permission-list">
-                        <li class="permission-item permissions-summary-item" data-summary="true">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-list"></i>Alle Berechtigungen anzeigen</span>
-                            </div>
-                            <button class="open-all small">Anzeigen</button>
-                        </li>
-                    </ul>
-                    <ul class="permission-details" style="display:none;">
                         <li class="permission-item">
                             <div class="permission-info">
                                 <span class="access-type"><i class="fas fa-exchange-alt"></i>Überweisungshistorie</span>
@@ -370,7 +315,6 @@
                 </li>
                 <li data-id="5" class="permission-group">
                     <div class="group-header">
-                        <div class="group-content">
                         <div class="company-container">
                             <div class="company-logo blackrock-logo">
                                 <span>BR</span>
@@ -388,17 +332,8 @@
                             onclick="showCompanyInfo(this)">
                             <i class="fas fa-info-circle"></i>
                         </button>
-                        </div>
                     </div>
                     <ul class="permission-list">
-                        <li class="permission-item permissions-summary-item" data-summary="true">
-                            <div class="permission-info">
-                                <span class="access-type"><i class="fas fa-list"></i>Alle Berechtigungen anzeigen</span>
-                            </div>
-                            <button class="open-all small">Anzeigen</button>
-                        </li>
-                    </ul>
-                    <ul class="permission-details" style="display:none;">
                         <li class="permission-item">
                             <div class="permission-info">
                                 <span class="access-type"><i class="fas fa-chart-pie"></i>Portfolio-Übersicht</span>
