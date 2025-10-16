@@ -107,18 +107,31 @@ const companyInfo = {
 // Function to show company information
 function showCompanyInfo(button) {
     const companyId = button.getAttribute('data-company');
-    const info = companyInfo[companyId];
     const dialog = document.getElementById('companyInfoDialog');
-    
+    let info = companyInfo[companyId];
+
+    // Defensive fallback when no info exists for the company
+    if (!info) {
+        const companyName = button.closest('.permission-group')?.querySelector('.company')?.textContent?.trim() || 'Institution';
+        info = {
+            title: companyName + ' — Informationen',
+            dataUsage: 'Für diese Institution sind derzeit keine detaillierten Informationen hinterlegt.',
+            accessDetails: 'Es liegen keine weiteren Zugriffsinformationen vor.',
+            security: 'Keine zusätzlichen Sicherheitsinformationen verfügbar.',
+            contact: 'Kein Kontakt hinterlegt.',
+            moreInfoUrl: '#'
+        };
+    }
+
     document.getElementById('companyInfoTitle').textContent = info.title;
     document.getElementById('dataUsagePolicy').textContent = info.dataUsage;
     document.getElementById('accessDetails').textContent = info.accessDetails;
     document.getElementById('securityMeasures').textContent = info.security;
     document.getElementById('contactInfo').textContent = info.contact;
-    
+
     const moreInfoLink = document.getElementById('moreInfoLink');
-    moreInfoLink.href = info.moreInfoUrl;
-    
+    moreInfoLink.href = info.moreInfoUrl || '#';
+
     dialog.classList.add('show');
 }
 
