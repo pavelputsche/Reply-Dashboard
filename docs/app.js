@@ -218,44 +218,36 @@ function closePermissionModal() {
 }
 
 // Wire group headers to open modal with their permission items
+// Replace accordion behavior: clicking the group header now opens the company permissions detail page
 document.querySelectorAll('.permission-group .group-header').forEach(header => {
-    // make header focusable and announceable
     header.setAttribute('tabindex', '0');
     header.setAttribute('role', 'button');
-    header.setAttribute('aria-expanded', 'false');
     header.style.cursor = 'pointer';
 
-    function toggleHeader(e) {
-        if (e.type === 'click' && e.target.closest('.info-btn')) return;
+    function openFromHeader(e) {
+        // ignore clicks on the info button or the 'Anzeigen' button inside the header
+        if (e.type === 'click' && (e.target.closest('.info-btn') || e.target.closest('.open-all'))) return;
         const group = header.closest('.permission-group');
-        const isExpanded = group.classList.contains('expanded');
-        // collapse others
-        document.querySelectorAll('.permission-group.expanded').forEach(g => {
-            if (g !== group) {
-                g.classList.remove('expanded');
-                const h = g.querySelector('.group-header');
-                if (h) h.setAttribute('aria-expanded', 'false');
-            }
+        const companyName = group.querySelector('.company').textContent.trim();
+        const companyId = group.getAttribute('data-id');
+
+        const items = [];
+        group.querySelectorAll('.permission-list .permission-item').forEach((pi, idx) => {
+            const label = pi.querySelector('.access-type').textContent.trim();
+            const since = pi.querySelector('.access-details') ? pi.querySelector('.access-details').textContent.trim() : '';
+            const iconEl = pi.querySelector('.access-type i');
+            const icon = iconEl ? iconEl.classList[1] : 'fa-circle';
+            items.push({ id: companyId + '-' + idx, label, since, icon });
         });
-        // toggle this one
-        if (isExpanded) {
-            group.classList.remove('expanded');
-            header.setAttribute('aria-expanded', 'false');
-        } else {
-            group.classList.add('expanded');
-            header.setAttribute('aria-expanded', 'true');
-        }
+
+        openCompanyPermissionsPage(companyName, items);
     }
 
-    header.addEventListener('click', toggleHeader);
+    header.addEventListener('click', openFromHeader);
     header.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            toggleHeader(e);
-        }
-        if (e.key === 'Escape') {
-            // close any open group
-            document.querySelectorAll('.permission-group.expanded').forEach(g => g.classList.remove('expanded'));
+            openFromHeader(e);
         }
     });
 });
