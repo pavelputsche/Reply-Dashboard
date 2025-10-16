@@ -1406,6 +1406,22 @@ input:focus, select:focus, textarea:focus {
     .permissions-tabs { overflow-x: auto; }
 }
 
+/* Strong overrides to prevent floating/absolute mini-panels for permission lists */
+#permissionsList .permission-group .permission-list,
+#permissionsList .permission-group .permission-list .permission-item {
+    position: static !important;
+    transform: none !important;
+    right: auto !important;
+    top: auto !important;
+    z-index: auto !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+#permissionsList .permission-group {
+    overflow: visible !important;
+}
+
 /* Final overrides scoped to the company permissions view to match the screenshot */
 #companyPermissions .company-permissions-container {
     max-width: 1000px;
