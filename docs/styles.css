@@ -122,6 +122,67 @@ body {
     }
 }
 
+/* Outer white panel wrapper to visually match screenshot */
+#permissionsList {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+/* Compact inner pill cards with subtitle and right-aligned actions */
+.permission-group {
+    padding: 0.5rem 0.75rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.permission-group .company-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.company .subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* actions grouped to the right */
+.permission-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* slightly smaller info button with subtle border */
+.permission-group .info-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 0.85rem;
+    border-radius: 50%;
+    border: 1px solid rgba(203,213,225,0.9);
+    background: transparent;
+    color: var(--text-secondary);
+}
+
+/* reduce spacing inside the permissions list container to create compact rows */
+#permissionsList .permission-group + .permission-group {
+    margin-top: 0.5rem;
+}
+
+/* Ensure the revoke button is positioned to the right and vertically centered */
+.permission-group .revoke-btn.small {
+    margin-left: 0.5rem;
+}
+
+/* small visual polish for the card shadows */
+.permission-group {
+    box-shadow: 0 1px 4px rgba(15,23,42,0.04);
+}
+
 .permission-group {
     width: 100%;
     border-radius: 12px;
