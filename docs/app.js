@@ -249,29 +249,59 @@ const companyPermissionsList = document.getElementById('companyPermissionsList')
 const companyPermissionsTitle = document.getElementById('companyPermissionsTitle');
 
 function openCompanyPermissionsPage(companyName, items) {
-    // set title
+    // render as tabs
     companyPermissionsTitle.textContent = companyName + ' — Berechtigungen';
-    companyPermissionsList.innerHTML = '';
+    const tabsContainer = document.getElementById('permissionsTabs');
+    const panelsContainer = document.getElementById('permissionsTabpanels');
+    tabsContainer.innerHTML = '';
+    panelsContainer.innerHTML = '';
 
-    items.forEach(item => {
-        const li = document.createElement('li');
-        li.className = 'permission-item';
+    items.forEach((item, idx) => {
+        const tabId = `perm-tab-${idx}`;
+        const panelId = `perm-panel-${idx}`;
 
-        const info = document.createElement('div');
-        info.className = 'permission-info';
-        info.innerHTML = `<span class="access-type"><i class="fas ${item.icon}"></i>${item.label}</span><span class="access-details">${item.since || ''}</span>`;
+        const tab = document.createElement('button');
+        tab.setAttribute('role', 'tab');
+        tab.id = tabId;
+        tab.setAttribute('aria-controls', panelId);
+        tab.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+        tab.className = 'perm-tab';
+        tab.textContent = item.label;
+        tab.addEventListener('click', () => {
+            // toggle selection
+            tabsContainer.querySelectorAll('[role="tab"]').forEach(t => t.setAttribute('aria-selected', 'false'));
+            tab.setAttribute('aria-selected', 'true');
+            panelsContainer.querySelectorAll('.perm-panel').forEach(p => p.style.display = 'none');
+            document.getElementById(panelId).style.display = 'block';
+        });
 
-        const btn = document.createElement('button');
-        btn.className = 'revoke-btn small';
-        btn.textContent = 'Widerrufen';
-        btn.addEventListener('click', () => {
+        const panel = document.createElement('div');
+        panel.className = 'perm-panel';
+        panel.id = panelId;
+        panel.style.display = idx === 0 ? 'block' : 'none';
+        panel.innerHTML = `<div class="permission-info"><span class="access-type"><i class="fas ${item.icon}"></i>${item.label}</span><span class="access-details">${item.since || ''}</span></div><div style="margin-top:12px;"><button class="revoke-btn small">Widerrufen</button></div>`;
+        panel.querySelector('.revoke-btn').addEventListener('click', () => {
             currentPermissionId = item.id;
             showDialog(`Möchten Sie die Berechtigung "${item.label}" wirklich widerrufen?`);
         });
 
-        li.appendChild(info);
-        li.appendChild(btn);
-        companyPermissionsList.appendChild(li);
+        tabsContainer.appendChild(tab);
+        panelsContainer.appendChild(panel);
+    });
+
+    // accessibility: keyboard navigation for tabs
+    tabsContainer.addEventListener('keydown', (e) => {
+        const tabs = Array.from(tabsContainer.querySelectorAll('[role="tab"]'));
+        const currentIndex = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
+        if (e.key === 'ArrowRight') {
+            const next = tabs[(currentIndex + 1) % tabs.length];
+            next.click();
+            next.focus();
+        } else if (e.key === 'ArrowLeft') {
+            const prev = tabs[(currentIndex - 1 + tabs.length) % tabs.length];
+            prev.click();
+            prev.focus();
+        }
     });
 
     // hide other sections and show company permissions

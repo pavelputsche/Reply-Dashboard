@@ -238,7 +238,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
-    /* hide inline permission details - use modal for details */
+    /* hide inline permission details on main dashboard; show in detail page */
     display: none;
 }
 
