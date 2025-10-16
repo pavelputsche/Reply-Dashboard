@@ -154,14 +154,41 @@ body {
 }
 
 /* Expandable group: when .expanded is set, show permission-list inline */
-.permission-group .permission-list {
-    display: none;
-    padding: 0 1rem 1rem 1rem;
+/* Show small permission cards inline to the right of the header (compact layout) */
+.permission-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem;
 }
 
-.permission-group.expanded .permission-list {
-    display: block;
+.permission-group .group-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1 1 auto;
 }
+
+.permission-group .permission-list {
+    display: flex;
+    gap: 0.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.permission-list .permission-item {
+    min-width: 220px;
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.permission-list .permission-item .permission-info { gap: 0.25rem; }
 
 /* Smooth expand/collapse: use max-height with transition */
 .permission-group .permission-list {

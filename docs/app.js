@@ -180,17 +180,14 @@ function closePermissionModal() {
 }
 
 // Wire group headers to navigate to company permissions page
-document.querySelectorAll('.permission-group .group-header').forEach(header => {
-    // make header focusable and announceable
-    header.setAttribute('tabindex', '0');
-    header.setAttribute('role', 'link');
-    header.style.cursor = 'pointer';
+// Wire only the "Alle Berechtigungen anzeigen" summary to open the detail page
+document.querySelectorAll('.permission-group .group-summary').forEach(summary => {
+    summary.setAttribute('tabindex', '0');
+    summary.setAttribute('role', 'button');
+    summary.style.cursor = 'pointer';
 
     function openPage(e) {
-        // ignore clicks originating from info button
-        if (e.type === 'click' && e.target.closest('.info-btn')) return;
-
-        const group = header.closest('.permission-group');
+        const group = summary.closest('.permission-group');
         const companyName = group.querySelector('.company').textContent.trim();
         const companyId = group.getAttribute('data-id');
 
@@ -206,8 +203,8 @@ document.querySelectorAll('.permission-group .group-header').forEach(header => {
         openCompanyPermissionsPage(companyName, items);
     }
 
-    header.addEventListener('click', openPage);
-    header.addEventListener('keydown', (e) => {
+    summary.addEventListener('click', openPage);
+    summary.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             openPage(e);
