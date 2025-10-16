@@ -142,10 +142,12 @@
         <section id="permissions" class="dashboard-section">
             <h2>Berechtigungsverwaltung</h2>
             <ul id="permissionsList">
-                <li data-id="1" class="permission-item">
-                    <div class="permission-info">
+                <li data-id="1" class="permission-group">
+                    <div class="group-header">
                         <div class="company-container">
-                            <div class="company-logo" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cGF0aCBkPSJNMTI1IDIzMGMtNTcuOSAwLTEwNS00Ny4xLTEwNS0xMDVTNjcuMSAyMCAxMjUgMjBzMTA1IDQ3LjEgMTA1IDEwNS00Ny4xIDEwNS0xMDUgMTA1em0wLTE5MGMtNDYuOSAwLTg1IDM4LjEtODUgODVzMzguMSA4NSA4NSA4NSA4NS0zOC4xIDg1LTg1LTM4LjEtODUtODUtODV6Ii8+PHBhdGggZD0iTTEyNSA5MGMtMTkuMyAwLTM1IDE1LjctMzUgMzVzMTUuNyAzNSAzNSAzNSAzNS0xNS43IDM1LTM1LTE1LjctMzUtMzUtMzV6bTAgNTBjLTguMiAwLTE1LTYuOC0xNS0xNXM2LjgtMTUgMTUtMTUgMTUgNi44IDE1IDE1LTYuOCAxNS0xNSAxNXoiLz48L3N2Zz4=')"></div>
+                            <div class="company-logo">
+                                <img src="assets/drv-logo.png" alt="Deutsche Rentenversicherung" class="logo-image">
+                            </div>
                             <div class="company-details">
                                 <span class="company">Deutsche Rentenversicherung</span>
                                 <span class="verified-badge" title="Verifizierte Institution">
@@ -153,22 +155,43 @@
                                 </span>
                             </div>
                         </div>
-                        <span class="access-type">Kontostand einsehen</span>
-                    </div>
-                    <div class="permission-actions">
-                        <button class="revoke-btn" onclick="togglePermission(1)">Widerrufen</button>
                         <button class="info-btn sage-green" 
-                            data-tooltip="Bei Widerruf der Berechtigung: &#10;• Alle API-Zugangstoken werden ungültig &#10;• Historischer Datenzugriff wird entfernt &#10;• Unternehmen muss neue Berechtigung beantragen &#10;• Bisherige Datenzugriffsprotokolle bleiben erhalten"
+                            data-tooltip="Informationen zur Institution und deren Berechtigungen"
                             data-company="pension-fund"
                             onclick="showCompanyInfo(this)">
                             <i class="fas fa-info-circle"></i>
                         </button>
                     </div>
+                    <ul class="permission-list">
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-wallet"></i>Kontostand einsehen</span>
+                                <span class="access-details">Zugriff seit: 01.10.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('drv-balance')">Widerrufen</button>
+                        </li>
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-chart-line"></i>Investitionen einsehen</span>
+                                <span class="access-details">Zugriff seit: 01.10.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('drv-investments')">Widerrufen</button>
+                        </li>
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-history"></i>Transaktionshistorie</span>
+                                <span class="access-details">Zugriff seit: 01.10.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('drv-history')">Widerrufen</button>
+                        </li>
+                    </ul>
                 </li>
-                <li data-id="2" class="permission-item">
-                    <div class="permission-info">
+                <li data-id="2" class="permission-group">
+                    <div class="group-header">
                         <div class="company-container">
-                            <div class="company-logo" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj48cGF0aCBkPSJNMTI1IDIzMGMtNTcuOSAwLTEwNS00Ny4xLTEwNS0xMDVTNjcuMSAyMCAxMjUgMjBzMTA1IDQ3LjEgMTA1IDEwNS00Ny4xIDEwNS0xMDUgMTA1em0wLTE5MGMtNDYuOSAwLTg1IDM4LjEtODUgODVzMzguMSA4NSA4NSA4NSA4NS0zOC4xIDg1LTg1LTM4LjEtODUtODUtODV6Ii8+PHBhdGggZD0iTTEyNSA5MGMtMTkuMyAwLTM1IDE1LjctMzUgMzVzMTUuNyAzNSAzNSAzNSAzNS0xNS43IDM1LTM1LTE1LjctMzUtMzUtMzV6bTAgNTBjLTguMiAwLTE1LTYuOC0xNS0xNXM2LjgtMTUgMTUtMTUgMTUgNi44IDE1IDE1LTYuOCAxNS0xNSAxNXoiLz48L3N2Zz4=')"></div>
+                            <div class="company-logo tk-logo">
+                                <span>T</span>
+                            </div>
                             <div class="company-details">
                                 <span class="company">Techniker Krankenkasse</span>
                                 <span class="verified-badge" title="Verifizierte Institution">
@@ -176,17 +199,168 @@
                                 </span>
                             </div>
                         </div>
-                        <span class="access-type">Persönliche Daten einsehen</span>
-                    </div>
-                    <div class="permission-actions">
-                        <button class="revoke-btn" onclick="togglePermission(2)">Widerrufen</button>
                         <button class="info-btn sage-green" 
-                            data-tooltip="Bei Widerruf der Berechtigung: &#10;• Alle API-Zugangstoken werden ungültig &#10;• Historischer Datenzugriff wird entfernt &#10;• Unternehmen muss neue Berechtigung beantragen &#10;• Bisherige Datenzugriffsprotokolle bleiben erhalten"
+                            data-tooltip="Informationen zur Institution und deren Berechtigungen"
                             data-company="health-insurance"
                             onclick="showCompanyInfo(this)">
                             <i class="fas fa-info-circle"></i>
                         </button>
                     </div>
+                    <ul class="permission-list">
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-user-shield"></i>Persönliche Daten einsehen</span>
+                                <span class="access-details">Zugriff seit: 01.10.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('tk-personal')">Widerrufen</button>
+                        </li>
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-file-medical"></i>Krankenversicherungsdaten</span>
+                                <span class="access-details">Zugriff seit: 01.10.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('tk-insurance')">Widerrufen</button>
+                        </li>
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-notes-medical"></i>Behandlungshistorie</span>
+                                <span class="access-details">Zugriff seit: 01.10.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('tk-history')">Widerrufen</button>
+                        </li>
+                    </ul>
+                </li>
+                <li data-id="3" class="permission-group">
+                    <div class="group-header">
+                        <div class="company-container">
+                            <div class="company-logo schufa-logo">
+                                <span>S</span>
+                            </div>
+                            <div class="company-details">
+                                <span class="company">SCHUFA</span>
+                                <span class="verified-badge" title="Verifizierte Institution">
+                                    <i class="fas fa-check-circle"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <button class="info-btn sage-green" 
+                            data-tooltip="Informationen zur Institution und deren Berechtigungen"
+                            data-company="schufa"
+                            onclick="showCompanyInfo(this)">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                    <ul class="permission-list">
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-credit-score"></i>Bonitätsscore einsehen</span>
+                                <span class="access-details">Zugriff seit: 01.09.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('schufa-score')">Widerrufen</button>
+                        </li>
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-history"></i>Kredithistorie</span>
+                                <span class="access-details">Zugriff seit: 01.09.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('schufa-history')">Widerrufen</button>
+                        </li>
+                    </ul>
+                </li>
+                <li data-id="4" class="permission-group">
+                    <div class="group-header">
+                        <div class="company-container">
+                            <div class="company-logo db-logo">
+                                <span>DB</span>
+                            </div>
+                            <div class="company-details">
+                                <span class="company">Deutsche Bank</span>
+                                <span class="verified-badge" title="Verifizierte Institution">
+                                    <i class="fas fa-check-circle"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <button class="info-btn sage-green" 
+                            data-tooltip="Informationen zur Institution und deren Berechtigungen"
+                            data-company="deutsche-bank"
+                            onclick="showCompanyInfo(this)">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                    <ul class="permission-list">
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-exchange-alt"></i>Überweisungshistorie</span>
+                                <span class="access-details">Zugriff seit: 15.09.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('db-transfers')">Widerrufen</button>
+                        </li>
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-piggy-bank"></i>Sparkonten einsehen</span>
+                                <span class="access-details">Zugriff seit: 15.09.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('db-savings')">Widerrufen</button>
+                        </li>
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-credit-card"></i>Kreditkartendaten</span>
+                                <span class="access-details">Zugriff seit: 15.09.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('db-credit')">Widerrufen</button>
+                        </li>
+                    </ul>
+                </li>
+                <li data-id="5" class="permission-group">
+                    <div class="group-header">
+                        <div class="company-container">
+                            <div class="company-logo blackrock-logo">
+                                <span>BR</span>
+                            </div>
+                            <div class="company-details">
+                                <span class="company">BlackRock Investment Management</span>
+                                <span class="verified-badge" title="Verifizierte Institution">
+                                    <i class="fas fa-check-circle"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <button class="info-btn sage-green" 
+                            data-tooltip="Informationen zur Institution und deren Berechtigungen"
+                            data-company="blackrock"
+                            onclick="showCompanyInfo(this)">
+                            <i class="fas fa-info-circle"></i>
+                        </button>
+                    </div>
+                    <ul class="permission-list">
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-chart-pie"></i>Portfolio-Übersicht</span>
+                                <span class="access-details">Zugriff seit: 01.10.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('br-portfolio')">Widerrufen</button>
+                        </li>
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-money-bill-trend-up"></i>Anlagepräferenzen</span>
+                                <span class="access-details">Zugriff seit: 01.10.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('br-preferences')">Widerrufen</button>
+                        </li>
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-file-invoice-dollar"></i>Steuerrelevante Daten</span>
+                                <span class="access-details">Zugriff seit: 01.10.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('br-tax')">Widerrufen</button>
+                        </li>
+                        <li class="permission-item">
+                            <div class="permission-info">
+                                <span class="access-type"><i class="fas fa-handshake"></i>Handelsaktivitäten</span>
+                                <span class="access-details">Zugriff seit: 01.10.2025</span>
+                            </div>
+                            <button class="revoke-btn small" onclick="togglePermission('br-trading')">Widerrufen</button>
+                        </li>
+                    </ul>
                 </li>
             </ul>
             
@@ -207,7 +381,13 @@
             <div class="message">
                 <div class="message-content">
                     <div class="company-container">
-                        <div class="company-logo" style="background-image: url('https://www.deutsche-rentenversicherung.de/SharedDocs/images/DE/Bilder/03_Navbar/01_Deutschlandkarte/drv_bund.png?__blob=normal')"></div>
+                        <div class="company-logo">
+                            <svg viewBox="0 0 40 40">
+                                <circle cx="20" cy="20" r="20" fill="#f0f0f0"/>
+                                <circle cx="20" cy="20" r="18" fill="#0067b2"/>
+                                <text x="20" y="27" font-family="Arial" font-size="18" fill="white" text-anchor="middle" font-weight="bold">R</text>
+                            </svg>
+                        </div>
                         <div class="company-details">
                             <strong>Deutsche Rentenversicherung</strong>
                             <span class="verified-badge" title="Verifizierte Institution">
