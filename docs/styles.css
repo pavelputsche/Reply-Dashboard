@@ -800,11 +800,15 @@ header {
     font-size: 0.875rem;
 }
 
+
 #permissions ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: grid;
     gap: 1rem;
+    /* outer white panel */
+    background: transparent;
 }
 
 @media (min-width: 768px) {
@@ -813,14 +817,76 @@ header {
     }
 }
 
-#permissions li {
+/* Each permission-group remains a grid item; inner header is the pill card */
+#permissions ul > li.permission-group {
+    display: block;
+    margin: 0;
+}
+
+#permissions ul > li.permission-group .group-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--background);
-    border-radius: 0.75rem;
-    padding: 1rem 1.25rem;
-    transition: all 0.3s ease;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.6rem 0.9rem;
+    box-shadow: 0 1px 2px rgba(15,23,42,0.03);
+}
+
+/* logo, company text and small subtitle */
+#permissions ul > li .company-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    padding: 6px;
+}
+
+#permissions ul > li .company-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#permissions ul > li .company .subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+/* summary box and 'Anzeigen' button */
+#permissions ul > li .summary-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 1rem;
+}
+
+#permissions ul > li .open-all {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.35rem 0.65rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* compact info and revoke buttons */
+#permissions ul > li .info-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+    border-radius: 50%;
+    border: 1px solid rgba(226,232,240,0.9);
+    margin-left: 0.6rem;
+}
+
+#permissions ul > li .revoke-btn.small {
+    background: var(--danger-color);
+    color: white;
+    padding: 0.35rem 0.6rem;
+    border-radius: 8px;
+    border: none;
 }
 
 .permission-item {
