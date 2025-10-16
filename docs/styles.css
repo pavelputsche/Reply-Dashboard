@@ -99,28 +99,29 @@ body {
 /* Berechtigungsverwaltung Styles */
 .permission-group {
     background: var(--surface);
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 1px 2px rgba(16,24,40,0.03);
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
     overflow: hidden;
+    border: 1px solid var(--border);
 }
 
-/* Layout: two columns for permission groups */
+/* Layout: single column for permission groups to create full-width cards */
 #permissionsList {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 1rem;
     align-items: start;
 }
 
 .permission-group {
     width: 100%;
+    border-radius: 12px;
 }
 
 .group-header {
-    padding: 1rem;
-    background: white;
-    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.25rem;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -128,12 +129,28 @@ body {
 
 /* Make the group header look like a clear, clickable card */
 .permission-group .group-header {
-    padding: 0.6rem 0.95rem;
-    border-radius: 8px;
-    background: var(--surface);
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    background: transparent;
     box-shadow: none;
     margin: 0;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Make the header content spread across the full card with company on the left and actions on the right */
+.permission-group .company-container {
+    display: flex;
+    align-items: center;
     gap: 0.75rem;
+}
+
+.permission-group .group-header .summary-box {
+    margin-left: auto;
+}
+
+.permission-group .info-btn {
+    margin-left: 0.5rem;
 }
 
 .permission-group .group-header:hover {
@@ -1349,11 +1366,11 @@ input:focus, select:focus, textarea:focus {
 }
 
 /* ensure inline small permission cards are visible and compact */
-.permission-group .permission-list { display: none; gap: 0.75rem; align-items: center; margin-left: 1rem; }
-.permission-list .permission-item { min-width: 200px; border-radius: 8px; padding: 0.6rem; }
+.permission-group .permission-list { display: block; padding: 0 1rem 1rem 1rem; margin: 0; }
+.permission-list .permission-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: none; padding: 0.75rem 0; }
 
-/* Show inline permission list only when the group is expanded (keeps accordion behavior) */
-.permission-group.expanded .permission-list { display: flex; }
+/* keep expanded rule for accordion behavior if needed */
+.permission-group.expanded .permission-list { display: block; }
 
 /* --- Company permissions tabs (visual match to screenshot) --- */
 .permissions-tabs, .permissions-tabs[role="tablist"] {
