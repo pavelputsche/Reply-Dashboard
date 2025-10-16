@@ -186,7 +186,13 @@ document.querySelectorAll('.permission-group .group-header').forEach(header => {
     header.addEventListener('click', (e) => {
         if (e.target.closest('.info-btn')) return;
         const group = header.closest('.permission-group');
-        group.classList.toggle('expanded');
+        const isExpanded = group.classList.contains('expanded');
+        // collapse others
+        document.querySelectorAll('.permission-group.expanded').forEach(g => {
+            if (g !== group) g.classList.remove('expanded');
+        });
+        // toggle this one
+        if (isExpanded) group.classList.remove('expanded'); else group.classList.add('expanded');
     });
 });
 
