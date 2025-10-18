@@ -7,11 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="theme-color" content="#6366f1">
-    <!-- Temporary inline override to ensure permission panels stay hidden until final styles settle -->
-    <style>
-        /* Temporary: force permission lists hidden on dashboard */
-        .permission-group .permission-list { display: none !important; }
-    </style>
 </head>
 <body>
     <nav id="sidebar" class="sidebar">
@@ -150,9 +145,9 @@
                 <li data-id="1" class="permission-group" data-permissions='[{"label":"Kontostand einsehen","since":"Zugriff seit: 01.10.2025","icon":"fa-wallet"},{"label":"Investitionen einsehen","since":"Zugriff seit: 01.10.2025","icon":"fa-chart-line"},{"label":"Transaktionshistorie","since":"Zugriff seit: 01.10.2025","icon":"fa-history"}]'>
                     <div class="group-header">
                         <div class="company-container">
-                            <div class="company-logo">
-                                <img src="assets/drv-logo.png" alt="Deutsche Rentenversicherung" class="logo-image">
-                            </div>
+                                <div class="company-logo drv-logo">
+                                    <img src="assets/drv-logo.png" alt="Deutsche Rentenversicherung" class="logo-image">
+                                </div>
                             <div class="company-details">
                                 <span class="company">Deutsche Rentenversicherung</span>
                                 <span class="verified-badge" title="Verifizierte Institution">
@@ -173,11 +168,7 @@
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo tk-logo">
-                                <!-- TK logo (inline SVG) -->
-                                <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <rect width="44" height="44" rx="10" fill="#1aa17a" />
-                                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, Arial" font-size="16" fill="white">TK</text>
-                                </svg>
+                                <img src="assets/tk-logo.svg" alt="Techniker Krankenkasse" class="logo-image">
                             </div>
                             <div class="company-details">
                                 <span class="company">Techniker Krankenkasse</span>
@@ -198,11 +189,7 @@
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo schufa-logo">
-                                <!-- SCHUFA logo (inline SVG) -->
-                                <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <circle cx="22" cy="22" r="20" fill="#005ca9" />
-                                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, Arial" font-size="16" fill="white">S</text>
-                                </svg>
+                                <img src="assets/schufa-logo.svg" alt="SCHUFA" class="logo-image">
                             </div>
                             <div class="company-details">
                                 <span class="company">SCHUFA</span>
@@ -223,11 +210,7 @@
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo db-logo">
-                                <!-- Deutsche Bank logo (inline SVG) -->
-                                <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <rect width="44" height="44" rx="10" fill="#0018a8" />
-                                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, Arial" font-size="14" fill="white">DB</text>
-                                </svg>
+                                <img src="assets/db-logo.svg" alt="Deutsche Bank" class="logo-image">
                             </div>
                             <div class="company-details">
                                 <span class="company">Deutsche Bank</span>
@@ -248,11 +231,7 @@
                     <div class="group-header">
                         <div class="company-container">
                             <div class="company-logo blackrock-logo">
-                                <!-- BlackRock logo (inline SVG) -->
-                                <svg width="44" height="44" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <rect width="44" height="44" rx="10" fill="#0b0b0b" />
-                                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter, Arial" font-size="12" fill="white">BR</text>
-                                </svg>
+                                <img src="assets/blackrock-logo.svg" alt="BlackRock" class="logo-image">
                             </div>
                             <div class="company-details">
                                 <span class="company">BlackRock Investment Management</span>
