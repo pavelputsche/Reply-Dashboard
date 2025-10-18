@@ -7,6 +7,31 @@
     <link rel="stylesheet" href="styles.css?v=20251018">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta name="theme-color" content="#6366f1">
+        <!-- Inline overrides to force badge and info-button colors (temporary) -->
+        <style>
+            .group-header .verified-badge {
+                background: var(--primary-color) !important;
+                color: white !important;
+                width: 20px !important;
+                height: 20px !important;
+                border-radius: 50% !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                font-size: 0.85rem !important;
+                margin-left: 0.5rem !important;
+            }
+            .group-header .info-btn.sage-green {
+                background: #eef7f1 !important;
+                border: 1px solid #d7efe0 !important;
+                color: #1f7a4c !important;
+            }
+            .group-header .info-btn.sage-green:hover {
+                background: #e0f3e6 !important;
+                color: #145a39 !important;
+                border-color: #bfe6c9 !important;
+            }
+        </style>
 </head>
 <body>
     <nav id="sidebar" class="sidebar">
